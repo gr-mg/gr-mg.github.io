@@ -64,7 +64,7 @@ const Abstract: React.FC = ({children}) => {
         </div>
     )
 }
-
+// 
 const Author: React.FC = ({children, website, firstAuthor, affiliations, lastAuthor}) => {
     return (
         <span className="text-center inline-block">
