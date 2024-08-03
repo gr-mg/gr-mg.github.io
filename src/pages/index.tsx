@@ -33,8 +33,8 @@ import wooden_rack from "./videos/language_results/carousel/wooden_rack.mp4"
 
 import lang_results from "./videos/language_results/lang_results.mp4"
 import teaser_video from "./videos/teaser.mp4"
-import final_video from  "./videos/multi_task.mp4"
-
+import multi_task from  "./videos/multi_task.mp4"
+import generalize from "./videos/different_settings"
 
 const Title: React.FC = ({children}) => {
     // Paper title
@@ -226,7 +226,7 @@ const IndexPage: React.FC<PageProps> = () => {
                         <Affiliation website={""} number={"2"}>School of Artificial Intelligence, University of Chinese Academy of Sciences</Affiliation>
                         <Affiliation website={""} number={"3"}>ByteDance Research</Affiliation>
                     </div>
-                    <div className="flex flex-wrap justify-center text-l lg:text-l">
+                    <div className="flex flex-wrap justify-center text-l lg:text-l space-x-4">
                         <span className="text-stone-600 text-center"><sup className="mr-0.5">†</sup>Work done during internship at Bytedance</span>
                         <span className="text-stone-600 text-center"><sup className="mr-0.5">*</sup>Corresponding author</span>
                         <span className="text-stone-600 text-center"><sup className="mr-0.5">‡</sup>Project lead</span>
@@ -239,22 +239,107 @@ const IndexPage: React.FC<PageProps> = () => {
                         <ActionLink url={""} icon={<AiFillGithub/>}>Code</ActionLink>
                     </p>
 
+                    {/* Abstract */}
+                    <Abstract>
+                        The robotics community has consistently aimed to
+                        achieve generalizable language-conditioned robot manipulation.
+                        One primary challenge is that collecting robot trajectories
+                        fully annotated with actions and languages is time-consuming
+                        and labor-intensive. However, partially-annotated data, such
+                        as human activity videos without action labels and robot
+                        play data without language labels, are comparatively easier
+                        to collect and are thus scalable. Can we leverage these data
+                        in policy learning to enhance its capability of generalization?
+                        To this end, we present GR-MG, a novel language-conditioned
+                        policy that uses multi-modal goals as conditions. In training,
+                        GR-MG takes a language instruction and/or a goal-image as
+                        the condition. During inference, it only takes the language
+                        instruction as inputs and use it to generate the goal image via
+                        a diffusion model. This design allows GR-MG to leverage large
+                        amounts of partially-annotated data. In addition, we introduce
+                        a novel technique to predict task completion progress which
+                        significantly improves the goal image generation. We perform
+                        extensive experiments in both simulation and the real world. In
+                        simulation experiments, GR-MG significantly outperforms all
+                        the comparing state-of-the-art methods, improving the success
+                        rate of completing 5 tasks in a row from 41.2% to 64.4%. The
+                        advantage of GR-MG is further enlarged in the case of data
+                        scarcity. In real-world experiments, GR-MG surpasses the com-
+                        paring baseline methods and showcases powerful generalization
+                        capability.
+                    </Abstract>
+
+                    {/* YouTube Video */}
+                    {/* <h2 className="font-semibold border-b-[1px]" id="video">Video with Audio</h2>
+                    <div className="aspect-w-16 aspect-h-9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/PA9rWWVWsc4"
+                                title="YouTube video player" frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen className="rounded-lg"></iframe>
+                    </div> */}
+                    
+                    {/* Results */}
+                    <h2 className="font-semibold border-b-[1px] !mb-4"> Real videos</h2>
                     {/* Multi task Video */}
-                    <video autoPlay controls muted playsInline loop alt="Teaser Video"
-                           className="border-2 border-slate-100 rounded-xl mx-auto max-w-[100%] sm:max-w-[95%]">
-                        <source src={final_video} type="video/mp4"/>
+                    <h3 id="language-guided" className="!mt-4">Multi-task ability</h3>
+                    <p>     GR-MG is a multi-task transformer trained on 29 real tasks.They include pick-and-place tasks such as "pick up the mandarin from the green plate", 
+                            articulated object manipulation tasks such as "open/close the drawer", "open/close the oven",
+                            fine-grained manipulation tasks such as "press the toaster switch" and extremely challenging pouring tasks
+                            such as "pour the black seasoning powder into the red bowl".</p>
+                    <video autoPlay controls muted playsInline loop alt="Multi-task ability"
+                           className="rounded-lg">
+                        <source src={multi_task} type="video/mp4"/>
                     </video>
 
-                    <div className="flex justify-center">
-                        <p className="text-center text-xl !mt-0 !mb-2 font-medium max-w-[100%] md:max-w-[75%]">
-                            We distill features from 2D foundation models into 3D feature fields, and enable few-shot
-                            language-guided manipulation that generalizes across object poses, shapes, appearances and
-                            categories.
-                        </p>
-                    </div>
-                </Article>
+                    {/*  Generalization Video */}
+                    <h3 id="language-guided" className="!mt-4">Generalization ability</h3>
+                    <p>  GR-MG demonstrate great generalization ability. We test its performance in four different settings including changing locations,
+                        adding distractors, manipulating unseen objects and adapting unseen backgrounds.</p>
+                    <video autoPlay controls muted playsInline loop alt="Generalization ability"
+                           className="rounded-lg">
+                        <source src={generalize} type="video/mp4"/>
+                    </video>
 
-                <div className="my-6 pt-6 pb-4 bg-gradient-to-r from-pink-100/70 via-indigo-100/70 to-emerald-100/70">
+
+
+                    {/* cite */}
+                    <h2 id="citation" className="border-b-[1px]">Citation</h2>
+                    <div className="relative overflow-auto">
+                        <pre className="bg-gradient-to-r from-pink-100 via-indigo-100 to-emerald-100 !my-0">
+                            <code id="citation-bib" className="font-medium text-slate-800 ">{
+                                `@inproceedings{shen2023F3RM,
+    title={Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation},
+    author={Shen, William and Yang, Ge and Yu, Alan and Wong, Jansen and Kaelbling, Leslie Pack and Isola, Phillip},
+    booktitle={7th Annual Conference on Robot Learning},
+    year={2023}
+}`}
+                            </code>
+                        </pre>
+                        <div className="absolute top-0 right-0">
+                            <button className="float-right text-2xl text-indigo-500 bg-white hover:bg-slate-50
+                            hover:text-indigo-600 hover:transition-all rounded-full p-2 m-3 invisible md:visible "
+                                    onClick={() => {
+                                        // Select all text in the code block
+                                        let bib = document.getElementById("citation-bib");
+                                        let range = document.createRange();
+                                        let selection = window.getSelection();
+
+                                        // Check not null
+                                        if (bib == null || range == null || selection == null) {
+                                            return;
+                                        }
+                                        range.selectNode(bib);
+                                        selection.removeAllRanges();
+                                        selection.addRange(range);
+                                    }}>
+                                <LuTextSelect/>
+                            </button>
+                        </div>
+                    </div>
+
+
+                {/* teach us how toset scroll video */}
+                {/* <div className="my-6 pt-6 pb-4 bg-gradient-to-r from-pink-100/70 via-indigo-100/70 to-emerald-100/70">
                     <div
                         className="mx-auto w-full max-w-[97.5%] lg:max-w-7xl py-2 md:py-4 px-2 md:px-4">
                         <div className="relative pb-8 mb-3">
@@ -287,47 +372,12 @@ const IndexPage: React.FC<PageProps> = () => {
                             this using only ten demonstrations across four object categories.
                         </p>
                     </div>
-                </div>
+                
+                </div> */}
 
-                <Article>
-                    {/* Abstract */}
-                    <Abstract>
-                        Self-supervised and language-supervised image models contain rich knowledge of the world
-                        that is important for generalization. Many robotic tasks, however, require a detailed
-                        understanding of 3D geometry, which is often lacking in 2D image features. This work bridges
-                        this 2D-to-3D gap for robotic manipulation by leveraging distilled feature fields to combine
-                        accurate 3D geometry with rich semantics from 2D foundation models. We present a few-shot
-                        learning method for 6-DOF grasping and placing that harnesses these strong spatial and semantic
-                        priors to achieve in-the-wild generalization to unseen objects. Using features distilled from a
-                        vision-language model, CLIP, we present a way to designate novel objects for manipulation via
-                        free-text natural language, and demonstrate its ability to generalize to unseen expressions and
-                        novel categories of objects.
-                    </Abstract>
-
-                    {/* YouTube Video */}
-                    <h2 className="font-semibold border-b-[1px]" id="video">Video with Audio</h2>
-                    <div className="aspect-w-16 aspect-h-9">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/PA9rWWVWsc4"
-                                title="YouTube video player" frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen className="rounded-lg"></iframe>
-                    </div>
-
-                    {/* Results */}
-                    <h2 className="font-semibold border-b-[1px] !mb-4">Robot Results</h2>
-
-                    <h3 id="language-guided" className="!mt-4">Language-Guided Manipulation</h3>
-                    <p>We present results on an example scene which we set up with novel objects in 6-DOF poses. We
-                        provide the robot with just 10 demonstrations across 4 object categories (mugs, screwdrivers,
-                        caterpillar toy, drying racks) in the form of 6-DOF grasp or place poses. We demonstrate the
-                        ability to designate novel objects to manipulate via language queries that span color and
-                        material properties, as well as <b>unseen object categories</b>.</p>
-                    <video autoPlay controls muted playsInline loop alt="Language Guided Manipulation"
-                           className="rounded-lg">
-                        <source src={lang_results} type="video/mp4"/>
-                    </video>
-
-                    <h3 className="!mt-4" id="few-shot">Few-Shot Grasping Results</h3>
+        
+                    {/* teach us how to set up a dropdown menu to select a video */}
+                    {/* <h3 className="!mt-4" id="few-shot">Few-Shot Grasping Results</h3>
                     <p>
                         We provide the robot with just two demonstrations for each task, such as grasping a mug by its
                         lip. We show generalization across object poses, shapes, sizes and appearances. Our approach <b>does
@@ -371,10 +421,9 @@ const IndexPage: React.FC<PageProps> = () => {
                             <option value="caterpillar">Grasp Caterpillar Ears</option>
                             <option value="rack">Place Cup on Rack</option>
                         </select>
-                    </div>
-
-                    {/* Few Shot Results */}
-                    <FewShotResult id="mug_lip" demos={mug_lip_demos}
+                    </div> */}
+                    
+                    {/* <FewShotResult id="mug_lip" demos={mug_lip_demos}
                                    demos_label="2 x Demos on a grey and a red mug" video={mug_lip_results}>
                         Grasp Mug Lip
                     </FewShotResult>
@@ -399,41 +448,9 @@ const IndexPage: React.FC<PageProps> = () => {
                     <FewShotResult id="rack" demos={rack_demos} hidden={true}
                                    demos_label="2 x Demos on a dark wooden rack" video={rack_results}>
                         Place Cup on Rack
-                    </FewShotResult>
+                    </FewShotResult> */}
 
-                    <h2 id="citation" className="border-b-[1px]">Citation</h2>
-                    <div className="relative overflow-auto">
-                        <pre className="bg-gradient-to-r from-pink-100 via-indigo-100 to-emerald-100 !my-0">
-                            <code id="citation-bib" className="font-medium text-slate-800">{
-                                `@inproceedings{shen2023F3RM,
-    title={Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation},
-    author={Shen, William and Yang, Ge and Yu, Alan and Wong, Jansen and Kaelbling, Leslie Pack and Isola, Phillip},
-    booktitle={7th Annual Conference on Robot Learning},
-    year={2023}
-}`}
-                            </code>
-                        </pre>
-                        <div className="absolute top-0 right-0">
-                            <button className="float-right text-2xl text-indigo-500 bg-white hover:bg-slate-50
-                            hover:text-indigo-600 hover:transition-all rounded-full p-2 m-3 invisible md:visible"
-                                    onClick={() => {
-                                        // Select all text in the code block
-                                        let bib = document.getElementById("citation-bib");
-                                        let range = document.createRange();
-                                        let selection = window.getSelection();
 
-                                        // Check not null
-                                        if (bib == null || range == null || selection == null) {
-                                            return;
-                                        }
-                                        range.selectNode(bib);
-                                        selection.removeAllRanges();
-                                        selection.addRange(range);
-                                    }}>
-                                <LuTextSelect/>
-                            </button>
-                        </div>
-                    </div>
                 </Article>
 
                 <footer className={"flex flex-col justify-center bg-gray-50 mt-8 py-8"}>
@@ -448,11 +465,12 @@ const IndexPage: React.FC<PageProps> = () => {
                         </a>
                     </div>
                     <div className="mt-2.5 text-center">
-                        Website source code on&nbsp;
+                        This website template is adopted from   
+                        <span className="mr-2"></span>
                         <a href="https://github.com/f3rm/f3rm.github.io" target="_blank" className="text-blue-500">
                             <span
                                 className="align-text-top inline-flex justify-center mr-0.25"><AiFillGithub/>&nbsp;</span>
-                            <span>GitHub</span>
+                            <span>Here</span>
                         </a>
                     </div>
                 </footer>
