@@ -266,8 +266,7 @@ const IndexPage: React.FC<PageProps> = () => {
                         the comparing state-of-the-art methods, improving the success
                         rate of completing 5 tasks in a row from 41.2% to 64.4%. The
                         advantage of GR-MG is further enlarged in the case of data
-                        scarcity. In real-world experiments, GR-MG surpasses the com-
-                        paring baseline methods and showcases powerful generalization
+                        scarcity. In real-world experiments, GR-MG surpasses the comparing baseline methods and showcases powerful generalization
                         capability.
                     </Abstract>
 
