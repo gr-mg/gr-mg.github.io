@@ -33,6 +33,7 @@ import wooden_rack from "./videos/language_results/carousel/wooden_rack.mp4"
 
 import lang_results from "./videos/language_results/lang_results.mp4"
 import teaser_video from "./videos/teaser.mp4"
+import final_video from  "./videos/multi_task.mp4"
 
 
 const Title: React.FC = ({children}) => {
@@ -65,19 +66,23 @@ const Abstract: React.FC = ({children}) => {
     )
 }
 // 
-const Author: React.FC = ({children, website, firstAuthor, affiliations, lastAuthor}) => {
+const Author: React.FC = ({children, website, affiliations, lastAuthor, isCorrespondingAuthor, isProjectLead,isInternship}) => {
     return (
         <span className="text-center inline-block">
-                <a href={website} target={"_blank"}
-                   className="font-normal no-underline text-stone-600 hover:underline underline-offset-3 hover:transition-all">
-                    {children}
-                </a>
-            {firstAuthor || affiliations ?
-                <sup className={"pl-0.5"}>{firstAuthor ?
-                    <span className="font-bold">*</span> : null}{affiliations ? affiliations : null}</sup>
+            <a href={website} target={"_blank"}
+               className="font-normal no-underline text-stone-600 hover:underline underline-offset-3 hover:transition-all">
+                {children}
+            </a>
+            { affiliations || isCorrespondingAuthor || isProjectLead  || isInternship  ?
+                <sup className={"pl-0.5"}>
+                    {affiliations ? affiliations : null}
+                    {isCorrespondingAuthor ? <span className="font-bold">*</span> : null}
+                    {isProjectLead ? <span className="font-bold">‡</span> : null}
+                    {isInternship ? <span className="font-bold">†</span> : null}
+                </sup>
                 : null}
             {lastAuthor ? null : <>,&nbsp;</>}
-            </span>
+        </span>
     )
 }
 
@@ -148,7 +153,8 @@ const FewShotResult: React.FC = ({children, id, demos, demos_label, video, hidde
 }
 
 
-export const Head: HeadFC = () => <title>Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation</title>
+export const Head: HeadFC = () => <title>GR-MG: Leveraging Partially Annotated Data by Adding Multi-modal
+Goal into Transformer</title>
 
 const carouselResponsive = {
     desktop: {
@@ -183,56 +189,60 @@ const IndexPage: React.FC<PageProps> = () => {
         <>
             <Main>
                 <Article>
-                    <Title>
+                    {/* <Title>
                         <span className="font-extrabold text-transparent bg-clip-text
                             bg-gradient-to-r from-pink-500 via-indigo-600 to-emerald-400">
                             Distilled Feature Fields
                         </span>
                         &nbsp;
                         <span className="text-stone-800">Enable Few-Shot Language-Guided Manipulation</span>
+                    </Title> */}
+                    <Title>
+                        <span className="text-stone-800">GR-MG: Leveraging Partially Annotated Data by Adding Multi-modal
+                        Goal into Transformer</span>
                     </Title>
 
-                    <Venue website={"https://www.corl2023.org/"}>
+                    <Venue website={""}>
                         <span className="font-normal text-stone-600 hover:text-transparent hover:bg-clip-text
                         hover:bg-gradient-to-r hover:from-pink-500 hover:via-indigo-600 hover:to-emerald-400
-                        hover:transition-all">CoRL 2023 (Best Paper)</span>
+                        hover:transition-all">In Submission</span>
                     </Venue>
+
 
                     {/* Authors */}
                     <div className="flex flex-wrap justify-center text-xl lg:text-xl mb-4">
-                        <Author website={"https://shen.nz/"} firstAuthor={true} affiliations={"1"}>William Shen</Author>
-                        <Author website={"https://www.episodeyang.com/"} firstAuthor={true} affiliations={"1,2"}>Ge
-                            Yang</Author>
-                        <Author website={"https://www.linkedin.com/in/alan-yu1/"} affiliations={"1"}>Alan Yu</Author>
-                        <Author website={"https://www.linkedin.com/in/jansenwong/"} affiliations={"1"}>Jansen
-                            Wong</Author>
-                        <Author website={"https://people.csail.mit.edu/lpk/"} affiliations={"1"}>Leslie
-                            Kaelbling</Author>
-                        <Author website={"https://people.csail.mit.edu/phillipi/"} affiliations={"1"} lastAuthor={true}>Phillip
-                            Isola</Author>
+                        <Author website={""} isInternship={true} affiliations={"1,2"}>Peiyan Li</Author>
+                        <Author website={""} affiliations={"3"} isCorrespondingAuthor={true} isProjectLead={true} >Hongtao Wu</Author>
+                        <Author website={""} affiliations={"1,2"} isCorrespondingAuthor={true}>Yan Huang</Author>
+                        <Author website={""} affiliations={"3"}>Chilam Cheang</Author>
+                        <Author website={""} affiliations={"1,2"}>Liang Wang</Author>
+                        <Author website={""} affiliations={"3"} lastAuthor={true}>Tao Kong</Author>
                     </div>
 
                     {/* Affilations */}
                     <div className="flex flex-wrap justify-center text-xl lg:text-xl mb-1">
-                        <Affiliation website={"https://www.csail.mit.edu/"} number={"1"}>MIT CSAIL</Affiliation>
-                        <Affiliation website={"https://iaifi.org/"} number={"2"}>Institute of AI and Fundamental
-                            Interactions (IAIFI)</Affiliation>
+                        <Affiliation website={""} number={"1"}>NLPR & MAIS, Institute of
+                        Automation, Chinese Academy of Sciences</Affiliation>
+                        <Affiliation website={""} number={"2"}>School of Artificial Intelligence, University of Chinese Academy of Sciences</Affiliation>
+                        <Affiliation website={""} number={"3"}>ByteDance Research</Affiliation>
                     </div>
                     <div className="flex flex-wrap justify-center text-l lg:text-l">
-                        <span className="text-stone-600 text-center"><sup className="mr-0.5">*</sup>Indicates equal contribution.</span>
+                        <span className="text-stone-600 text-center"><sup className="mr-0.5">†</sup>Work done during internship at Bytedance</span>
+                        <span className="text-stone-600 text-center"><sup className="mr-0.5">*</sup>Corresponding author</span>
+                        <span className="text-stone-600 text-center"><sup className="mr-0.5">‡</sup>Project lead</span>
                     </div>
 
                     {/* Action Links */}
                     <p className="flex flex-wrap justify-center">
-                        <ActionLink url={"https://arxiv.org/abs/2308.07931"} icon={<FaFilePdf/>}>Paper</ActionLink>
-                        <ActionLink url={"#video"} icon={<FaVideo/>}>Video</ActionLink>
-                        <ActionLink url={"https://github.com/f3rm/f3rm"} icon={<AiFillGithub/>}>Code</ActionLink>
+                        <ActionLink url={""} icon={<FaFilePdf/>}>Paper</ActionLink>
+                        {/* <ActionLink url={"#video"} icon={<FaVideo/>}>Video</ActionLink> */}
+                        <ActionLink url={""} icon={<AiFillGithub/>}>Code</ActionLink>
                     </p>
 
-                    {/* Teaser Video */}
+                    {/* Multi task Video */}
                     <video autoPlay controls muted playsInline loop alt="Teaser Video"
                            className="border-2 border-slate-100 rounded-xl mx-auto max-w-[100%] sm:max-w-[95%]">
-                        <source src={teaser_video} type="video/mp4"/>
+                        <source src={final_video} type="video/mp4"/>
                     </video>
 
                     <div className="flex justify-center">

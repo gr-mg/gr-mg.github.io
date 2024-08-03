@@ -1,6 +1,7 @@
-# F3RM Website
+# GR-MG Website
 
-Project website for the paper "Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation".
+Project website for the paper "GR-MG: Leveraging Partially Annotated Data by Adding Multi-modal
+Goal into Transformer".
 
 **Deployed at:** https://f3rm.csail.mit.edu/
 
