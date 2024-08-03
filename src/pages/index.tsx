@@ -34,7 +34,7 @@ import wooden_rack from "./videos/language_results/carousel/wooden_rack.mp4"
 import lang_results from "./videos/language_results/lang_results.mp4"
 import teaser_video from "./videos/teaser.mp4"
 import multi_task from  "./videos/multi_task.mp4"
-import generalize from "./videos/different_settings"
+import generalize from  "./videos/different_settings.mp4"
 
 const Title: React.FC = ({children}) => {
     // Paper title
@@ -277,7 +277,7 @@ const IndexPage: React.FC<PageProps> = () => {
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen className="rounded-lg"></iframe>
                     </div> */}
-                    
+                
                     {/* Results */}
                     <h2 className="font-semibold border-b-[1px] !mb-4"> Real videos</h2>
                     {/* Multi task Video */}
@@ -291,13 +291,13 @@ const IndexPage: React.FC<PageProps> = () => {
                         <source src={multi_task} type="video/mp4"/>
                     </video>
 
-                    {/*  Generalization Video */}
+                     Generalization Video
                     <h3 id="language-guided" className="!mt-4">Generalization ability</h3>
                     <p>  GR-MG demonstrate great generalization ability. We test its performance in four different settings including changing locations,
                         adding distractors, manipulating unseen objects and adapting unseen backgrounds.</p>
                     <video autoPlay controls muted playsInline loop alt="Generalization ability"
-                           className="rounded-lg">
-                        <source src={generalize} type="video/mp4"/>
+                        className="rounded-lg mx-auto">
+                    <source src={generalize} type="video/mp4"/>
                     </video>
 
 
