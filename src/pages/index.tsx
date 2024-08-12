@@ -243,31 +243,33 @@ const IndexPage: React.FC<PageProps> = () => {
 
                     {/* Abstract */}
                     <Abstract>
-                        The robotics community has consistently aimed to
-                        achieve generalizable language-conditioned robot manipulation.
-                        One primary challenge is that collecting robot trajectories
-                        fully annotated with actions and languages is time-consuming
-                        and labor-intensive. However, partially-annotated data, such
-                        as human activity videos without action labels and robot
-                        play data without language labels, are comparatively easier
-                        to collect and are thus scalable. Can we leverage these data
-                        in policy learning to enhance its capability of generalization?
-                        To this end, we present GR-MG, a novel language-conditioned
-                        policy that uses multi-modal goals as conditions. In training,
-                        GR-MG takes a language instruction and/or a goal-image as
-                        the condition. During inference, it only takes the language
-                        instruction as inputs and use it to generate the goal image via
-                        a diffusion model. This design allows GR-MG to leverage large
-                        amounts of partially-annotated data. In addition, we introduce
-                        a novel technique to predict task completion progress which
-                        significantly improves the goal image generation. We perform
-                        extensive experiments in both simulation and the real world. In
-                        simulation experiments, GR-MG significantly outperforms all
-                        the comparing state-of-the-art methods, improving the success
-                        rate of completing 5 tasks in a row from 41.2% to 64.4%. The
-                        advantage of GR-MG is further enlarged in the case of data
-                        scarcity. In real world experiments, GR-MG surpasses the comparing baseline methods and showcases powerful generalization
-                        capability.
+                    The robotics community has consistently aimed to
+                    achieve generalizable robot manipulation with flexible natural
+                    language instructions. One of the primary challenges is that
+                    obtaining robot data fully annotated with both actions and
+                    texts is time-consuming and labor-intensive. However, partially
+                    annotated data, such as human activity videos without action
+                    lables and robot playing data without language labels, is much
+                    easier to collect. Can we leverage these data to enhance the
+                    generalization capability of robots? In this paper, we propose
+                    GR-MG, a novel method which supports conditioning on both
+                    a language instruction and a goal image. During training, GR-
+                    MG samples goal images from trajectories and conditions on
+                    both the text and the goal image or solely on the image when
+                    text is unavailable. During inference, where only the text is
+                    provided, GR-MG generates the goal image via a diffusion-
+                    based image-editing model and condition on both the text
+                    and the generated image. This approach enables GR-MG to
+                    leverage large amounts of partially annotated data while still
+                    using language to flexibly specify tasks. To generate accurate
+                    goal images, we propose a novel progress-guided goal image
+                    generation model which injects task progress information into
+                    the generation process, significantly improving the fidelity and
+                    the performance. In simulation experiments, GR-MG improves
+                    the average number of tasks completed in a row of 5 from
+                    3.35 to 4.04. In real experiments, GR-MG is able to perform
+                    47 different tasks and improves the success rate from 47.78%
+                    to 62.22%.
                     </Abstract>
 
                     {/* YouTube Video */}
