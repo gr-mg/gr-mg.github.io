@@ -38,25 +38,36 @@ import generalize from  "./videos/different_settings.mp4"
 import rollout from "./videos/rollout_min.mp4"
 import architecture from "./videos/architecture.mp4"
 
-
-import 1_1 from "./videos/robust_to_poses/1_1.mp4"
-import 1_2 from "./videos/robust_to_poses/1_2.mp4"
-import 1_3 from "./videos/robust_to_poses/1_3.mp4"
-import 1_4 from "./videos/robust_to_poses/1_4.mp4"
-import 1_5 from "./videos/robust_to_poses/1_5.mp4"
-import 1_6 from "./videos/robust_to_poses/1_6.mp4"
-
-
-import 2_1 from "./videos/robust_to_distractors/2_1.mp4"
-import 2_2 from "./videos/robust_to_distractors/2_2.mp4"
-import 2_3 from "./videos/robust_to_distractors/2_3.mp4"
-import 2_4 from "./videos/robust_to_distractors/2_4.mp4"
-import 2_5 from "./videos/robust_to_distractors/2_5.mp4"
-import 2_6 from "./videos/robust_to_distractors/2_6.mp4"
+import G_1_1 from "./videos/few_shot_results/1_1.mp4"  //不能以数字开头命名
+// import 1_1 from "./videos/robust_to_poses/1_1.mp4"
+import G_1_2 from "./videos/robust_to_poses/1_2.mp4"
+import G_1_3 from "./videos/robust_to_poses/1_3.mp4"
+import G_1_4 from "./videos/robust_to_poses/1_4.mp4"
+import G_1_5 from "./videos/robust_to_poses/1_5.mp4"
+import G_1_6 from "./videos/robust_to_poses/1_6.mp4"
 
 
+import G_2_1 from "./videos/robust_to_distractors/2_1.mp4"
+import G_2_2 from "./videos/robust_to_distractors/2_2.mp4"
+import G_2_3 from "./videos/robust_to_distractors/2_3.mp4"
+import G_2_4 from "./videos/robust_to_distractors/2_4.mp4"
+import G_2_5 from "./videos/robust_to_distractors/2_5.mp4"
+import G_2_6 from "./videos/robust_to_distractors/2_6.mp4"
 
 
+import G_3_1 from "./videos/robust_to_backgrounds/3_1.mp4"
+import G_3_2 from "./videos/robust_to_backgrounds/3_2.mp4"
+import G_3_3 from "./videos/robust_to_backgrounds/3_3.mp4"
+import G_3_4 from "./videos/robust_to_backgrounds/3_4.mp4"
+import G_3_5 from "./videos/robust_to_backgrounds/3_5.mp4"
+import G_3_6 from "./videos/robust_to_backgrounds/3_6.mp4"
+
+import G_4_1 from "./videos/robust_to_unseen_object/4_1.mp4"
+import G_4_2 from "./videos/robust_to_unseen_object/4_2.mp4"
+import G_4_3 from "./videos/robust_to_unseen_object/4_3.mp4"
+import G_4_4 from "./videos/robust_to_unseen_object/4_4.mp4"
+import G_4_5 from "./videos/robust_to_unseen_object/4_5.mp4"
+import G_4_6 from "./videos/robust_to_unseen_object/4_6.mp4"
 
 const Title: React.FC = ({children}) => {
     // Paper title
@@ -356,15 +367,15 @@ const IndexPage: React.FC<PageProps> = () => {
                                               }
                                           }
                                       }}>
-                                <CarouselItem video={1_1}>"press the toaster switch"</CarouselItem>
-                                <CarouselItem video={1_2}>"press the toaster switch"</CarouselItem>
-                                <CarouselItem video={1_3}>"press the toaster switch"</CarouselItem>
-                                <CarouselItem video={1_4}>"open the oven"</CarouselItem>
-                                <CarouselItem video={1_5}>"open the oven"</CarouselItem>
-                                <CarouselItem video={1_6}>"open the oven"</CarouselItem>
+                                <CarouselItem video={G_1_1}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={G_1_2}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={G_1_3}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={G_1_4}>"open the oven"</CarouselItem>
+                                <CarouselItem video={G_1_5}>"open the oven"</CarouselItem>
+                                <CarouselItem video={G_1_6}>"open the oven"</CarouselItem>
                             </Carousel>
                         </div>
-                        <p className="text-center text-lg md:text-xl md:max-w-[85%] mx-auto">
+                        <p className="text-center text-xl md:text-2xl font-bold md:max-w-[85%] mx-auto">
                             GR-MG is robust to different object poses
                         </p>
                     </div>
@@ -388,18 +399,81 @@ const IndexPage: React.FC<PageProps> = () => {
                                               }
                                           }
                                       }}>
-                                <CarouselItem video={2_1}>"pick up the mandarin from the green plate 
-                                    &
-                                    place the picked object on the table"</CarouselItem>
-                                <CarouselItem video={2_2}>"press the toaster switch"</CarouselItem>
-                                <CarouselItem video={2_3}>"press the toaster switch"</CarouselItem>
-                                <CarouselItem video={2_4}>"press the toaster switch"</CarouselItem>
-                                <CarouselItem video={2_5}>"press the toaster switch"</CarouselItem>
-                                <CarouselItem video={2_6}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={G_2_1}>"pick up the mandarin from the green plate & place the picked object on the table"</CarouselItem>
+                                <CarouselItem video={G_2_2}>"pick up the mandarin from the green plate & place the picked object on the table"</CarouselItem>
+                                <CarouselItem video={G_2_3}>"pick up the mandarin from the green plate & place the picked object on the table"</CarouselItem>
+                                <CarouselItem video={G_2_4}>"pick up the red mug from the rack & place the picked object on the table"</CarouselItem>
+                                <CarouselItem video={G_2_5}>"pick up the red mug from the rack & place the picked object on the table"</CarouselItem>
+                                <CarouselItem video={G_2_6}>"pick up the red mug from the rack & place the picked object on the table"</CarouselItem>
                             </Carousel>
                         </div>
-                        <p className="text-center text-lg md:text-xl md:max-w-[85%] mx-auto">
-                            GR-MG is robust to different object poses
+                        <p className="text-center text-xl md:text-2xl font-bold md:max-w-[85%] mx-auto">
+                            GR-MG is robust to unseen distractors
+                        </p>
+                    </div>
+                
+                </div>
+
+                <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
+                    <div
+                        className="mx-auto w-full max-w-[97.5%] lg:max-w-7xl py-2 md:py-4 px-2 md:px-4">
+                        <div className="relative pb-8 mb-3">
+                            <Carousel responsive={carouselResponsive} infinite={true} showDots={true}
+                                      renderDotsOutside={true}
+                                      beforeChange={(previousSlide, {currentSlide, onMove}) => {
+                                          // play all carousel-video, as the browser doesn't like autoplaying them all
+                                          const videos = document.getElementsByClassName("carousel-video");
+                                          for (let i = 0; i < videos.length; i++) {
+                                              // play if video is paused
+                                              if ((videos[i] as HTMLVideoElement).paused) {
+                                                  (videos[i] as HTMLVideoElement).play();
+                                                  console.log("Started playing video " + (videos[i] as HTMLVideoElement).src);
+                                              }
+                                          }
+                                      }}>
+                                <CarouselItem video={G_3_1}>"pick up the green mug from the rack & place the picked object on the table"</CarouselItem>
+                                {/* <CarouselItem video={G_3_2}>"pick up the green mug from the rack & place the picked object on the table"</CarouselItem> */}
+                                <CarouselItem video={G_3_3}>"pick up the green mug from the rack & place the picked object on the table"</CarouselItem>
+                                <CarouselItem video={G_3_6}>"pick up the potato from the vegetable basket & place the picked object on the cutting board"</CarouselItem>
+                                {/* <CarouselItem video={G_3_4}>"pick up the potato from the vegetable basket & place the picked object on the cutting board"</CarouselItem> */}
+                                <CarouselItem video={G_3_5}>"pick up the potato from the vegetable basket & place the picked object on the cutting board"</CarouselItem>
+                               
+                            </Carousel>
+                        </div>
+                        <p className="text-center text-xl md:text-2xl font-bold md:max-w-[85%] mx-auto">
+                            GR-MG is robust to unseen backgrounds
+                        </p>
+                    </div>
+                
+                </div>
+                <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
+                    <div
+                        className="mx-auto w-full max-w-[97.5%] lg:max-w-7xl py-2 md:py-4 px-2 md:px-4">
+                        <div className="relative pb-8 mb-3">
+                            <Carousel responsive={carouselResponsive} infinite={true} showDots={true}
+                                      renderDotsOutside={true}
+                                      beforeChange={(previousSlide, {currentSlide, onMove}) => {
+                                          // play all carousel-video, as the browser doesn't like autoplaying them all
+                                          const videos = document.getElementsByClassName("carousel-video");
+                                          for (let i = 0; i < videos.length; i++) {
+                                              // play if video is paused
+                                              if ((videos[i] as HTMLVideoElement).paused) {
+                                                  (videos[i] as HTMLVideoElement).play();
+                                                  console.log("Started playing video " + (videos[i] as HTMLVideoElement).src);
+                                              }
+                                          }
+                                      }}>
+                                <CarouselItem video={G_4_4}>"pick up the tiger from the red plate & place the picked object on the green plate"</CarouselItem>
+                                <CarouselItem video={G_4_5}>"pick up the red apple from the red plate & place the picked object on the green plate"</CarouselItem>
+                                <CarouselItem video={G_4_6}>"pick up the while bottle from the red plate & place the picked object on the green plate"</CarouselItem>
+                                <CarouselItem video={G_4_1}>"pick up the yellow bottle from the vegetable basket & place the picked object on the cutting board"</CarouselItem>
+                                <CarouselItem video={G_4_2}>"pick up the banana from the vegetable basket & place the picked object on the cutting board"</CarouselItem>
+                                <CarouselItem video={G_4_3}>"pick up the red apple from the vegetable basket & place the picked object on the cutting board"</CarouselItem>
+
+                            </Carousel>
+                        </div>
+                        <p className="text-center text-xl md:text-2xl font-bold md:max-w-[85%] mx-auto">
+                            GR-MG is robust to unseen objects
                         </p>
                     </div>
                 
