@@ -33,9 +33,29 @@ import wooden_rack from "./videos/language_results/carousel/wooden_rack.mp4"
 
 import lang_results from "./videos/language_results/lang_results.mp4"
 import teaser_video from "./videos/teaser.mp4"
-import multi_task from  "./videos/multi_task.mp4"
+import multi_task from  "./videos/multitask_min.mp4"
 import generalize from  "./videos/different_settings.mp4"
-import rollout from "./videos/rollout2.mp4"
+import rollout from "./videos/rollout_min.mp4"
+import architecture from "./videos/architecture.mp4"
+
+
+import 1_1 from "./videos/robust_to_poses/1_1.mp4"
+import 1_2 from "./videos/robust_to_poses/1_2.mp4"
+import 1_3 from "./videos/robust_to_poses/1_3.mp4"
+import 1_4 from "./videos/robust_to_poses/1_4.mp4"
+import 1_5 from "./videos/robust_to_poses/1_5.mp4"
+import 1_6 from "./videos/robust_to_poses/1_6.mp4"
+
+
+import 2_1 from "./videos/robust_to_distractors/2_1.mp4"
+import 2_2 from "./videos/robust_to_distractors/2_2.mp4"
+import 2_3 from "./videos/robust_to_distractors/2_3.mp4"
+import 2_4 from "./videos/robust_to_distractors/2_4.mp4"
+import 2_5 from "./videos/robust_to_distractors/2_5.mp4"
+import 2_6 from "./videos/robust_to_distractors/2_6.mp4"
+
+
+
 
 
 const Title: React.FC = ({children}) => {
@@ -88,12 +108,12 @@ const Author: React.FC = ({children, website, affiliations, lastAuthor, isCorres
     )
 }
 
-const Affiliation: React.FC = ({children, website, number}) => {
+const Affiliation: React.FC = ({children, number}) => {
     return (
         <span className={"text-center inline-block mr-4"}>
             <sup className={"mr-0.5"}>{number}</sup>
-            <a href={website} target={"_blank"}
-               className="font-light no-underline text-stone-600 hover:underline underline-offset-3 hover:transition-all">
+            <a
+               className="font-light no-underline text-stone-600">
                     {children}
                 </a>
         </span>
@@ -155,8 +175,8 @@ const FewShotResult: React.FC = ({children, id, demos, demos_label, video, hidde
 }
 
 
-export const Head: HeadFC = () => <title>GR-MG: Leveraging Partially Annotated Data by Adding Multi-modal
-Goal into Transformer</title>
+export const Head: HeadFC = () => <title>GR-MG: Leveraging Partially Annotated Data via Multi-Modal
+Goal Conditioned Policy</title>
 
 const carouselResponsive = {
     desktop: {
@@ -181,7 +201,7 @@ const CarouselItem: React.FC = ({children, video}) => {
                    className="carousel-video px-1.5 rounded-xl">
                 <source src={video} type="video/mp4"/>
             </video>
-            {/*<p className="text-center">{children}</p>*/}
+            <p className="text-center">{children}</p>
         </div>
     )
 }
@@ -191,42 +211,35 @@ const IndexPage: React.FC<PageProps> = () => {
         <>
             <Main>
                 <Article>
-                    {/* <Title>
-                        <span className="font-extrabold text-transparent bg-clip-text
-                            bg-gradient-to-r from-pink-500 via-indigo-600 to-emerald-400">
-                            Distilled Feature Fields
-                        </span>
-                        &nbsp;
-                        <span className="text-stone-800">Enable Few-Shot Language-Guided Manipulation</span>
-                    </Title> */}
                     <Title>
-                        <span className="text-stone-800">GR-MG: Leveraging Partially Annotated Data by Adding Multi-modal
-                        Goal into Transformer</span>
+                        <span className="text-stone-800">GR-MG: Leveraging Partially Annotated Data via Multi-Modal
+                        Goal Conditioned Policy</span>
                     </Title>
 
                     <Venue website={""}>
-                        <span className="font-normal text-stone-600 hover:text-transparent hover:bg-clip-text
+                        {/* <span className="font-normal text-stone-600 hover:text-transparent hover:bg-clip-text
                         hover:bg-gradient-to-r hover:from-pink-500 hover:via-indigo-600 hover:to-emerald-400
-                        hover:transition-all">In Submission</span>
+                        hover:transition-all">In Submission</span> */}
+                        <span className="font-normal text-stone-600 hover:underline">In Submission</span>
                     </Venue>
 
 
                     {/* Authors */}
                     <div className="flex flex-wrap justify-center text-xl lg:text-xl mb-4">
                         <Author website={""} isInternship={true} affiliations={"1,2"}>Peiyan Li</Author>
-                        <Author website={""} affiliations={"3"} isCorrespondingAuthor={true} isProjectLead={true} >Hongtao Wu</Author>
-                        <Author website={""} affiliations={"1,2"} isCorrespondingAuthor={true}>Yan Huang</Author>
+                        <Author website={"https://scholar.google.com/citations?user=7u0TYgIAAAAJ&hl=zh-CN&oi=ao"} affiliations={"3"} isCorrespondingAuthor={true} isProjectLead={true} >Hongtao Wu</Author>
+                        <Author website={"https://yanrockhuang.github.io/"} affiliations={"1,2"} isCorrespondingAuthor={true}>Yan Huang</Author>
                         <Author website={""} affiliations={"3"}>Chilam Cheang</Author>
-                        <Author website={""} affiliations={"1,2"}>Liang Wang</Author>
-                        <Author website={""} affiliations={"3"} lastAuthor={true}>Tao Kong</Author>
+                        <Author website={"https://scholar.google.com/citations?hl=zh-CN&user=8kzzUboAAAAJ&view_op=list_works&sortby=pubdate"} affiliations={"1,2"}>Liang Wang</Author>
+                        <Author website={"https://www.taokong.org/"} affiliations={"3"} lastAuthor={true}>Tao Kong</Author>
                     </div>
 
                     {/* Affilations */}
                     <div className="flex flex-wrap justify-center text-xl lg:text-xl mb-1">
-                        <Affiliation website={""} number={"1"}>NLPR & MAIS, Institute of
+                        <Affiliation  number={"1"}>NLPR & MAIS, Institute of
                         Automation, Chinese Academy of Sciences</Affiliation>
-                        <Affiliation website={""} number={"2"}>School of Artificial Intelligence, University of Chinese Academy of Sciences</Affiliation>
-                        <Affiliation website={""} number={"3"}>ByteDance Research</Affiliation>
+                        <Affiliation number={"2"}>School of Artificial Intelligence, University of Chinese Academy of Sciences</Affiliation>
+                        <Affiliation number={"3"}>ByteDance Research</Affiliation>
                     </div>
                     <div className="flex flex-wrap justify-center text-l lg:text-l space-x-4">
                         <span className="text-stone-600 text-center"><sup className="mr-0.5">†</sup>Work done during internship at Bytedance</span>
@@ -238,7 +251,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     <p className="flex flex-wrap justify-center">
                         <ActionLink url={""} icon={<FaFilePdf/>}>Paper</ActionLink>
                         {/* <ActionLink url={"#video"} icon={<FaVideo/>}>Video</ActionLink> */}
-                        <ActionLink url={""} icon={<AiFillGithub/>}>Code</ActionLink>
+                        <ActionLink url={""} icon={<AiFillGithub/>}>Code (Coming soon)</ActionLink>
                     </p>
 
                     {/* Abstract */}
@@ -249,7 +262,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     obtaining robot data fully annotated with both actions and
                     texts is time-consuming and labor-intensive. However, partially
                     annotated data, such as human activity videos without action
-                    lables and robot playing data without language labels, is much
+                    labels and robot play data without language labels, is much
                     easier to collect. Can we leverage these data to enhance the
                     generalization capability of robots? In this paper, we propose
                     GR-MG, a novel method which supports conditioning on both
@@ -266,10 +279,11 @@ const IndexPage: React.FC<PageProps> = () => {
                     generation model which injects task progress information into
                     the generation process, significantly improving the fidelity and
                     the performance. In simulation experiments, GR-MG improves
-                    the average number of tasks completed in a row of 5 from
-                    3.35 to 4.04. In real experiments, GR-MG is able to perform
-                    47 different tasks and improves the success rate from 47.78%
-                    to 62.22%.
+                    the average number of tasks completed in a row of 5 from 3.35
+                    to 4.04. In real-robot experiments, GR-MG is able to perform
+                    47 different tasks and improves the success rate from 62.5%
+                    to 75.0% and 42.4% to 57.6% in simple and generalization
+                    settings, respectively.
                     </Abstract>
 
                     {/* YouTube Video */}
@@ -280,9 +294,22 @@ const IndexPage: React.FC<PageProps> = () => {
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen className="rounded-lg"></iframe>
                     </div> */}
-                
+                    <h2 className="font-semibold border-b-[1px] !mb-4">Model Architecture</h2>
+                    <p> GR-MG is a model designed to support multi-modal goals, consisting of two key modules: a progress-guided goal 
+                        image generation model and a multi-modal goal-conditioned policy. The goal image generation model creates a goal 
+                        image based on the current observation, a language description of the task, and task progress information. 
+                        This goal image serves as a sub-goal, representing a potential intermediate state the robot aims to achieve. 
+                        The multi-modal goal-conditioned policy then takes the goal image, current observation, and language instructions
+                        as input to predict the future image, action trajectory, and progress information, which are subsequently fed 
+                        back into the goal image generation model for the next iteration. During inference, the progress information is 
+                        initialized as zero.
+                    </p>
+                    <video autoPlay controls muted playsInline loop alt="model architecture"
+                        className="rounded-lg mx-auto">
+                    <source src={architecture} type="video/mp4"/>
+                    </video>
                     {/* Results */}
-                    <h2 className="font-semibold border-b-[1px] !mb-4"> Real videos</h2>
+                    <h2 className="font-semibold border-b-[1px] !mb-4">Real Videos</h2>
                     {/* Example Rollout */}
                     <h3 id="rollout" className="!mt-4">Example Rollout</h3>
                     <p>  During inference, GR-MG will first generate a goal image, which indicates the potential intermediate state the robot may arrive at to finish the task assigned by the text.
@@ -298,10 +325,10 @@ const IndexPage: React.FC<PageProps> = () => {
 
                     {/* Multi task Video */}
                     <h3 id="language-guided" className="!mt-4">Multi-task Ability</h3>
-                    <p>     GR-MG is a multi-task transformer trained on 29 real tasks.They include pick-and-place tasks such as "pick up the mandarin from the green plate", 
-                            articulated object manipulation tasks such as "open/close the drawer", "open/close the oven",
-                            fine-grained manipulation tasks such as "press the toaster switch" and extremely challenging pouring tasks
-                            such as "pour the black seasoning powder into the red bowl".</p>
+                    <p>     GR-MG is a multi-task transformer which is able to perform 47 tasks. They include pick-and-place tasks such as "pick up the mandarin from the green plate", 
+                            articulated object manipulation tasks such as "open/close the drawer", "open/close the oven","press the toaster switch" and extremely challenging 
+                            pouring tasks such as "pour the black seasoning powder into the red bowl".
+                    </p>
                     <video autoPlay controls muted playsInline loop alt="Multi-task ability"
                            className="rounded-lg mx-auto">
                         <source src={multi_task} type="video/mp4"/>
@@ -309,53 +336,10 @@ const IndexPage: React.FC<PageProps> = () => {
 
                     {/* Generalization Video */}
                     <h3 id="language-guided" className="!mt-4">Generalization Ability</h3>
-                    <p>  GR-MG demonstrate great generalization ability. We test its performance in four different settings including changing locations,
-                        adding distractors, manipulating unseen objects and adapting unseen backgrounds.</p>
-                    <video autoPlay controls muted playsInline loop alt="Generalization ability"
-                        className="rounded-lg mx-auto">
-                    <source src={generalize} type="video/mp4"/>
-                    </video>
-
-
-
-                    {/* cite */}
-                    <h2 id="citation" className="border-b-[1px]">Citation</h2>
-                    <div className="relative overflow-auto">
-                        <pre className="bg-gradient-to-r from-pink-100 via-indigo-100 to-emerald-100 !my-0">
-                            <code id="citation-bib" className="font-medium text-slate-800 ">{
-                                `@inproceedings{shen2023F3RM,
-    title={Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation},
-    author={Shen, William and Yang, Ge and Yu, Alan and Wong, Jansen and Kaelbling, Leslie Pack and Isola, Phillip},
-    booktitle={7th Annual Conference on Robot Learning},
-    year={2023}
-}`}
-                            </code>
-                        </pre>
-                        <div className="absolute top-0 right-0">
-                            <button className="float-right text-2xl text-indigo-500 bg-white hover:bg-slate-50
-                            hover:text-indigo-600 hover:transition-all rounded-full p-2 m-3 invisible md:visible "
-                                    onClick={() => {
-                                        // Select all text in the code block
-                                        let bib = document.getElementById("citation-bib");
-                                        let range = document.createRange();
-                                        let selection = window.getSelection();
-
-                                        // Check not null
-                                        if (bib == null || range == null || selection == null) {
-                                            return;
-                                        }
-                                        range.selectNode(bib);
-                                        selection.removeAllRanges();
-                                        selection.addRange(range);
-                                    }}>
-                                <LuTextSelect/>
-                            </button>
-                        </div>
-                    </div>
-
-
-                {/* teach us how toset scroll video */}
-                {/* <div className="my-6 pt-6 pb-4 bg-gradient-to-r from-pink-100/70 via-indigo-100/70 to-emerald-100/70">
+                    <p>  GR-MG demonstrate great generalization ability. We test its performance in four different settings including changed object poses,
+                        adding distractors, adapting unseen backgrounds and manipulating unseen objects.</p>
+{/* teach us how to set scroll video */}
+                <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
                     <div
                         className="mx-auto w-full max-w-[97.5%] lg:max-w-7xl py-2 md:py-4 px-2 md:px-4">
                         <div className="relative pb-8 mb-3">
@@ -372,26 +356,54 @@ const IndexPage: React.FC<PageProps> = () => {
                                               }
                                           }
                                       }}>
-                                <CarouselItem video={clear_mug}>"Clear Mug"</CarouselItem>
-                                <CarouselItem video={measuring_scoop}>"Measuring Scoop"</CarouselItem>
-                                <CarouselItem video={teddy_bear}>"Teddy Bear"</CarouselItem>
-                                <CarouselItem video={blue_mug}>"Blue Mug</CarouselItem>
-                                <CarouselItem video={screwdriver}>"Screwdriver"</CarouselItem>
-                                <CarouselItem video={water_jug}>"Water Jug</CarouselItem>
-                                <CarouselItem video={measuring_beaker}>"Measuring Beaker"</CarouselItem>
-                                <CarouselItem video={wooden_rack}>"Wooden Rack</CarouselItem>
-                                <CarouselItem video={transparent_rack}>"Transparent Rack"</CarouselItem>
+                                <CarouselItem video={1_1}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={1_2}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={1_3}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={1_4}>"open the oven"</CarouselItem>
+                                <CarouselItem video={1_5}>"open the oven"</CarouselItem>
+                                <CarouselItem video={1_6}>"open the oven"</CarouselItem>
                             </Carousel>
                         </div>
                         <p className="text-center text-lg md:text-xl md:max-w-[85%] mx-auto">
-                            We designate novel objects to grasp using <b>open-ended language queries</b>, and achieve
-                            this using only ten demonstrations across four object categories.
+                            GR-MG is robust to different object poses
                         </p>
                     </div>
                 
-                </div> */}
+                </div>
 
-        
+                <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
+                    <div
+                        className="mx-auto w-full max-w-[97.5%] lg:max-w-7xl py-2 md:py-4 px-2 md:px-4">
+                        <div className="relative pb-8 mb-3">
+                            <Carousel responsive={carouselResponsive} infinite={true} showDots={true}
+                                      renderDotsOutside={true}
+                                      beforeChange={(previousSlide, {currentSlide, onMove}) => {
+                                          // play all carousel-video, as the browser doesn't like autoplaying them all
+                                          const videos = document.getElementsByClassName("carousel-video");
+                                          for (let i = 0; i < videos.length; i++) {
+                                              // play if video is paused
+                                              if ((videos[i] as HTMLVideoElement).paused) {
+                                                  (videos[i] as HTMLVideoElement).play();
+                                                  console.log("Started playing video " + (videos[i] as HTMLVideoElement).src);
+                                              }
+                                          }
+                                      }}>
+                                <CarouselItem video={2_1}>"pick up the mandarin from the green plate 
+                                    &
+                                    place the picked object on the table"</CarouselItem>
+                                <CarouselItem video={2_2}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={2_3}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={2_4}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={2_5}>"press the toaster switch"</CarouselItem>
+                                <CarouselItem video={2_6}>"press the toaster switch"</CarouselItem>
+                            </Carousel>
+                        </div>
+                        <p className="text-center text-lg md:text-xl md:max-w-[85%] mx-auto">
+                            GR-MG is robust to different object poses
+                        </p>
+                    </div>
+                
+                </div>
                     {/* teach us how to set up a dropdown menu to select a video */}
                     {/* <h3 className="!mt-4" id="few-shot">Few-Shot Grasping Results</h3>
                     <p>
@@ -466,7 +478,41 @@ const IndexPage: React.FC<PageProps> = () => {
                         Place Cup on Rack
                     </FewShotResult> */}
 
+{/* cite */}
+                    {/* <h2 id="citation" className="border-b-[1px]">Citation</h2>
+                    <div className="relative overflow-auto">
+                        <pre className="bg-gradient-to-r from-pink-100 via-indigo-100 to-emerald-100 !my-0">
+                            <code id="citation-bib" className="font-medium text-slate-800 ">{
+                                `@inproceedings{shen2023F3RM,
+    title={Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation},
+    author={Shen, William and Yang, Ge and Yu, Alan and Wong, Jansen and Kaelbling, Leslie Pack and Isola, Phillip},
+    booktitle={7th Annual Conference on Robot Learning},
+    year={2023}
+}`
+}
+                            </code>
+                        </pre>
+                        <div className="absolute top-0 right-0">
+                            <button className="float-right text-2xl text-indigo-500 bg-white hover:bg-slate-50
+                            hover:text-indigo-600 hover:transition-all rounded-full p-2 m-3 invisible md:visible "
+                                    onClick={() => {
+                                        // Select all text in the code block
+                                        let bib = document.getElementById("citation-bib");
+                                        let range = document.createRange();
+                                        let selection = window.getSelection();
 
+                                        // Check not null
+                                        if (bib == null || range == null || selection == null) {
+                                            return;
+                                        }
+                                        range.selectNode(bib);
+                                        selection.removeAllRanges();
+                                        selection.addRange(range);
+                                    }}>
+                                <LuTextSelect/>
+                            </button>
+                        </div>
+                    </div> */}
                 </Article>
 
                 <footer className={"flex flex-col justify-center bg-gray-50 mt-8 py-8"}>
