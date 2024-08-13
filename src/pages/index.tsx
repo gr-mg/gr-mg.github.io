@@ -56,10 +56,10 @@ import G_2_6 from "./videos/robust_to_distractors/2_6.mp4"
 
 
 import G_3_1 from "./videos/robust_to_backgrounds/3_1.mp4"
-import G_3_2 from "./videos/robust_to_backgrounds/3_2.mp4"
+import G_3_7 from "./videos/robust_to_backgrounds/3_7.mp4"
 import G_3_3 from "./videos/robust_to_backgrounds/3_3.mp4"
 import G_3_4 from "./videos/robust_to_backgrounds/3_4.mp4"
-import G_3_5 from "./videos/robust_to_backgrounds/3_5.mp4"
+import G_3_8 from "./videos/robust_to_backgrounds/3_8.mp4"
 import G_3_6 from "./videos/robust_to_backgrounds/3_6.mp4"
 
 import G_4_1 from "./videos/robust_to_unseen_object/4_1.mp4"
@@ -217,6 +217,69 @@ const CarouselItem: React.FC = ({children, video}) => {
     )
 }
 
+
+// 一个简单的视频显示组件
+const VideoGrid = ({ videos }) => {
+    return (
+      <div className="video-grid">
+        {videos.map((video, index) => (
+          <div key={index} className="video-item">
+            <video width="320" height="240" controls autoPlay muted playsInline loop>
+              <source src={video.src} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <p>{video.description}</p>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+const videosRow1_1 = [
+    { src: G_1_1, description: "press the toaster switch" },
+    { src: G_1_2, description: "press the toaster switch" },
+    { src: G_1_3, description: "press the toaster switch" },
+  ];
+const videosRow1_2 = [
+    { src: G_1_4, description: "open the oven" },
+    { src: G_1_5, description: "open the oven" },
+    { src: G_1_6, description: "open the oven" },
+  ];
+
+const videosRow2_1 = [
+    { src: G_2_1, description: "pick up the mandarin from the green plate & place the picked object on the table" },
+    { src: G_2_2, description: "pick up the mandarin from the green plate & place the picked object on the table" },
+    { src: G_2_3, description: "pick up the mandarin from the green plate & place the picked object on the table" },
+  ];
+const videosRow2_2 = [
+    { src: G_2_4, description: "pick up the red mug from the rack & place the picked object on the table" },
+    { src: G_2_5, description: "pick up the red mug from the rack & place the picked object on the table" },
+    { src: G_2_6, description: "pick up the red mug from the rack & place the picked object on the table" },
+  ];
+
+const videosRow3_1 = [
+    { src: G_3_1, description: "pick up the red mug from the rack & place the picked object on the table" },
+    { src: G_3_6, description: "pick up the potato from the vegetable basket & place the picked object on the cutting board" },
+    { src: G_3_7, description: "pick up the eggplant from the green plate & place the picked object on the red plate" },
+  ];
+const videosRow3_2 = [
+    { src: G_3_3, description: "pick up the red mug from the rack & place the picked object on the table" },
+    { src: G_3_4, description: "pick up the potato from the vegetable basket & place the picked object on the cutting board" },
+    { src: G_3_8, description: "pick up the eggplant from the green plate & place the picked object on the red plate" },
+  ];
+
+
+
+const videosRow4_1 = [
+    { src: G_4_4, description: "pick up the tiger from the red plate & place the picked object on the green plate" },
+    { src: G_4_5, description: "pick up the red apple from the red plate & place the picked object on the green plate" },
+    { src: G_4_6, description: "pick up the while bottle from the red plate & place the picked object on the green plate" },
+  ];
+const videosRow4_2 = [
+    { src: G_4_1, description: "pick up the yellow bottle from the vegetable basket & place the picked object on the cutting board" },
+    { src: G_4_2, description: "pick up the banana from the vegetable basket & place the picked object on the cutting board" },
+    { src: G_4_3, description: "pick up the red apple from the vegetable basket & place the picked object on the cutting board" },
+  ];
 const IndexPage: React.FC<PageProps> = () => {
     return (
         <>
@@ -289,12 +352,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     goal images, we propose a novel progress-guided goal image
                     generation model which injects task progress information into
                     the generation process, significantly improving the fidelity and
-                    the performance. In simulation experiments, GR-MG improves
-                    the average number of tasks completed in a row of 5 from 3.35
-                    to 4.04. In real-robot experiments, GR-MG is able to perform
-                    47 different tasks and improves the success rate from 62.5%
-                    to 75.0% and 42.4% to 57.6% in simple and generalization
-                    settings, respectively.
+                    the performance.
                     </Abstract>
 
                     {/* YouTube Video */}
@@ -305,7 +363,7 @@ const IndexPage: React.FC<PageProps> = () => {
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen className="rounded-lg"></iframe>
                     </div> */}
-                    <h2 className="font-semibold border-b-[1px] !mb-4">Model Architecture</h2>
+                    <h2 className="font-semibold border-b-[1px] !mb-4">Model</h2>
                     <p> GR-MG is a model designed to support multi-modal goals, consisting of two key modules: a progress-guided goal 
                         image generation model and a multi-modal goal-conditioned policy. The goal image generation model creates a goal 
                         image based on the current observation, a language description of the task, and task progress information. 
@@ -315,12 +373,12 @@ const IndexPage: React.FC<PageProps> = () => {
                         back into the goal image generation model for the next iteration. During inference, the progress information is 
                         initialized as zero.
                     </p>
-                    <video autoPlay controls muted playsInline loop alt="model architecture"
+                    <video autoPlay controls muted playsInline loop alt="model"
                         className="rounded-lg mx-auto">
                     <source src={architecture} type="video/mp4"/>
                     </video>
                     {/* Results */}
-                    <h2 className="font-semibold border-b-[1px] !mb-4">Real Videos</h2>
+                    <h2 className="font-semibold border-b-[1px] !mb-4">Real-Robot Experiments</h2>
                     {/* Example Rollout */}
                     <h3 id="rollout" className="!mt-4">Example Rollout</h3>
                     <p>  During inference, GR-MG will first generate a goal image, which indicates the potential intermediate state the robot may arrive at to finish the task assigned by the text.
@@ -329,124 +387,61 @@ const IndexPage: React.FC<PageProps> = () => {
                         rather than at every time step. Empirically, if the computational burden is not a concern, updating the goal image at every step would likely 
                         result in better final performance.
                     </p>
-                    <video autoPlay controls muted playsInline loop alt="Example rollout"
+                    <video autoPlay controls muted playsInline loop alt="Example Rollout"
                         className="rounded-lg mx-auto">
                     <source src={rollout} type="video/mp4"/>
                     </video>
 
                     {/* Multi task Video */}
-                    <h3 id="language-guided" className="!mt-4">Multi-task Ability</h3>
+                    <h3 id="language-guided" className="!mt-4">Multi-task Learning Experiments</h3>
                     <p>     GR-MG is a multi-task transformer which is able to perform 47 tasks. They include pick-and-place tasks such as "pick up the mandarin from the green plate", 
                             articulated object manipulation tasks such as "open/close the drawer", "open/close the oven","press the toaster switch" and extremely challenging 
                             pouring tasks such as "pour the black seasoning powder into the red bowl".
                     </p>
-                    <video autoPlay controls muted playsInline loop alt="Multi-task ability"
+                    <video autoPlay controls muted playsInline loop alt="Multi-task Learning Experiments"
                            className="rounded-lg mx-auto">
                         <source src={multi_task} type="video/mp4"/>
                     </video>
 
                     {/* Generalization Video */}
-                    <h3 id="language-guided" className="!mt-4">Generalization Ability</h3>
+                    <h3 id="language-guided" className="!mt-4">Generalization Experiments</h3>
                     <p>  GR-MG demonstrate great generalization ability. We test its performance in four different settings including changed object poses,
                         adding distractors, adapting unseen backgrounds and manipulating unseen objects.</p>
-{/* teach us how to set scroll video */}
+{/* teach us how to lay videos */}
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                    <div
-                        className="mx-auto w-full max-w-[97.5%] lg:max-w-7xl py-2 md:py-4 px-2 md:px-4">
-                        <div className="relative pb-8 mb-3">
-                            <Carousel responsive={carouselResponsive} infinite={true} showDots={true}
-                                      renderDotsOutside={true}
-                                      beforeChange={(previousSlide, {currentSlide, onMove}) => {
-                                          // play all carousel-video, as the browser doesn't like autoplaying them all
-                                          const videos = document.getElementsByClassName("carousel-video");
-                                          for (let i = 0; i < videos.length; i++) {
-                                              // play if video is paused
-                                              if ((videos[i] as HTMLVideoElement).paused) {
-                                                  (videos[i] as HTMLVideoElement).play();
-                                                  console.log("Started playing video " + (videos[i] as HTMLVideoElement).src);
-                                              }
-                                          }
-                                      }}>
-                                <CarouselItem video={G_1_1}>"press the toaster switch"</CarouselItem>
-                                <CarouselItem video={G_1_2}>"press the toaster switch"</CarouselItem>
-                                <CarouselItem video={G_1_3}>"press the toaster switch"</CarouselItem>
-                                <CarouselItem video={G_1_4}>"open the oven"</CarouselItem>
-                                <CarouselItem video={G_1_5}>"open the oven"</CarouselItem>
-                                <CarouselItem video={G_1_6}>"open the oven"</CarouselItem>
-                            </Carousel>
-                        </div>
-                        <p className="text-center text-xl md:text-2xl font-bold md:max-w-[85%] mx-auto">
-                            GR-MG is robust to different object poses
-                        </p>
-                    </div>
-                
+                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto">
+                    Robust to Different Object Poses
+                </p>
+                <VideoGrid videos={videosRow1_1} />
+                <VideoGrid videos={videosRow2_1} />
                 </div>
 
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                    <div
-                        className="mx-auto w-full max-w-[97.5%] lg:max-w-7xl py-2 md:py-4 px-2 md:px-4">
-                        <div className="relative pb-8 mb-3">
-                            <Carousel responsive={carouselResponsive} infinite={true} showDots={true}
-                                      renderDotsOutside={true}
-                                      beforeChange={(previousSlide, {currentSlide, onMove}) => {
-                                          // play all carousel-video, as the browser doesn't like autoplaying them all
-                                          const videos = document.getElementsByClassName("carousel-video");
-                                          for (let i = 0; i < videos.length; i++) {
-                                              // play if video is paused
-                                              if ((videos[i] as HTMLVideoElement).paused) {
-                                                  (videos[i] as HTMLVideoElement).play();
-                                                  console.log("Started playing video " + (videos[i] as HTMLVideoElement).src);
-                                              }
-                                          }
-                                      }}>
-                                <CarouselItem video={G_2_1}>"pick up the mandarin from the green plate & place the picked object on the table"</CarouselItem>
-                                <CarouselItem video={G_2_2}>"pick up the mandarin from the green plate & place the picked object on the table"</CarouselItem>
-                                <CarouselItem video={G_2_3}>"pick up the mandarin from the green plate & place the picked object on the table"</CarouselItem>
-                                <CarouselItem video={G_2_4}>"pick up the red mug from the rack & place the picked object on the table"</CarouselItem>
-                                <CarouselItem video={G_2_5}>"pick up the red mug from the rack & place the picked object on the table"</CarouselItem>
-                                <CarouselItem video={G_2_6}>"pick up the red mug from the rack & place the picked object on the table"</CarouselItem>
-                            </Carousel>
-                        </div>
-                        <p className="text-center text-xl md:text-2xl font-bold md:max-w-[85%] mx-auto">
-                            GR-MG is robust to unseen distractors
-                        </p>
-                    </div>
-                
+                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto">
+                    Robust to Unseen Distractors
+                </p>
+                <VideoGrid videos={videosRow2_1} />
+                <VideoGrid videos={videosRow2_2} />
                 </div>
 
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                    <div
-                        className="mx-auto w-full max-w-[97.5%] lg:max-w-7xl py-2 md:py-4 px-2 md:px-4">
-                        <div className="relative pb-8 mb-3">
-                            <Carousel responsive={carouselResponsive} infinite={true} showDots={true}
-                                      renderDotsOutside={true}
-                                      beforeChange={(previousSlide, {currentSlide, onMove}) => {
-                                          // play all carousel-video, as the browser doesn't like autoplaying them all
-                                          const videos = document.getElementsByClassName("carousel-video");
-                                          for (let i = 0; i < videos.length; i++) {
-                                              // play if video is paused
-                                              if ((videos[i] as HTMLVideoElement).paused) {
-                                                  (videos[i] as HTMLVideoElement).play();
-                                                  console.log("Started playing video " + (videos[i] as HTMLVideoElement).src);
-                                              }
-                                          }
-                                      }}>
-                                <CarouselItem video={G_3_1}>"pick up the green mug from the rack & place the picked object on the table"</CarouselItem>
-                                {/* <CarouselItem video={G_3_2}>"pick up the green mug from the rack & place the picked object on the table"</CarouselItem> */}
-                                <CarouselItem video={G_3_3}>"pick up the green mug from the rack & place the picked object on the table"</CarouselItem>
-                                <CarouselItem video={G_3_6}>"pick up the potato from the vegetable basket & place the picked object on the cutting board"</CarouselItem>
-                                {/* <CarouselItem video={G_3_4}>"pick up the potato from the vegetable basket & place the picked object on the cutting board"</CarouselItem> */}
-                                <CarouselItem video={G_3_5}>"pick up the potato from the vegetable basket & place the picked object on the cutting board"</CarouselItem>
-                               
-                            </Carousel>
-                        </div>
-                        <p className="text-center text-xl md:text-2xl font-bold md:max-w-[85%] mx-auto">
-                            GR-MG is robust to unseen backgrounds
-                        </p>
-                    </div>
-                
+                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto">
+                    Robust to Unseen Backgrounds
+                </p>
+                <VideoGrid videos={videosRow3_1} />
+                <VideoGrid videos={videosRow3_2} />
                 </div>
+
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
+                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto">
+                    Robust to Unseen Objects
+                </p>
+                <VideoGrid videos={videosRow4_1} />
+                <VideoGrid videos={videosRow4_2} />
+                </div>
+
+{/* teach us how to set scroll video */}       
+                {/* <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
                     <div
                         className="mx-auto w-full max-w-[97.5%] lg:max-w-7xl py-2 md:py-4 px-2 md:px-4">
                         <div className="relative pb-8 mb-3">
@@ -477,7 +472,7 @@ const IndexPage: React.FC<PageProps> = () => {
                         </p>
                     </div>
                 
-                </div>
+                </div> */}
                     {/* teach us how to set up a dropdown menu to select a video */}
                     {/* <h3 className="!mt-4" id="few-shot">Few-Shot Grasping Results</h3>
                     <p>

@@ -23,3 +23,17 @@ video:hover::-webkit-media-controls-panel {
     opacity: 0.75;
 }
 
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 每行三个视频 */
+    gap: 20px; /* 视频之间的间隔 */
+  }
+  
+  .video-item {
+    text-align: center;
+  }
+  
+  video {
+    width: 100%;
+    height: auto;
+  }
