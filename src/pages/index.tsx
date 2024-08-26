@@ -237,23 +237,23 @@ const VideoGrid = ({ videos }) => {
 
 const videosRow1_1 = [
     { src: G_1_1, description: "" },
-    { src: G_1_2, description: "press the toaster switch" },
+    { src: G_1_2, description: "" },
     { src: G_1_3, description: "" },
   ];
 const videosRow1_2 = [
     { src: G_1_4, description: "" },
-    { src: G_1_5, description: "open the oven" },
+    { src: G_1_5, description: "" },
     { src: G_1_6, description: "" },
   ];
 
 const videosRow2_1 = [
     { src: G_2_1, description: "" },
-    { src: G_2_2, description: "pick up the mandarin from the green plate & place the picked object on the table" },
+    { src: G_2_2, description: "" },
     { src: G_2_3, description: "" },
   ];
 const videosRow2_2 = [
     { src: G_2_4, description: "" },
-    { src: G_2_5, description: "pick up the red mug from the rack & place the picked object on the table" },
+    { src: G_2_5, description: "" },
     { src: G_2_6, description: "" },
   ];
 
@@ -371,7 +371,7 @@ const IndexPage: React.FC<PageProps> = () => {
                            The task progress is subsequently fed into the goal image generation model. The task progress is initialized as zero at the beginning of a rollout.
                     </p>
                     <video autoPlay controls muted playsInline loop alt="model"
-                        className="rounded-lg mx-auto">
+                        className="rounded-lg mx-auto" style={{ width: '70%', height: 'auto' }}>
                     <source src={architecture} type="video/mp4"/>
                     </video>
                     {/* Results */}
@@ -382,7 +382,7 @@ const IndexPage: React.FC<PageProps> = () => {
                         The goal image indicates the state the robot should move towards according to the given language instruction.
                     </p>
                     <video autoPlay controls muted playsInline loop alt="Example Rollout"
-                        className="rounded-lg mx-auto">
+                        className="rounded-lg mx-auto" style={{ width: '70%', height: 'auto' }}>
                     <source src={rollout} type="video/mp4"/>
                     </video>
 
@@ -391,7 +391,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     <p>     GR-MG is able to perform 47 tasks, including object pick-and-place, articulated object manipulation, and pouring.
                     </p>
                     <video autoPlay controls muted playsInline loop alt="Multi-task Learning Experiments"
-                           className="rounded-lg mx-auto">
+                           className="rounded-lg mx-auto" style={{ width: '70%', height: 'auto' }}>
                         <source src={multi_task} type="video/mp4"/>
                     </video>
 
@@ -405,7 +405,13 @@ const IndexPage: React.FC<PageProps> = () => {
                     Robust to Different Object Poses
                 </p>
                 <VideoGrid videos={videosRow1_1} />
+                <p className="text-center mx-auto">
+                press the toaster switch
+                </p>
                 <VideoGrid videos={videosRow1_2} />
+                <p className="text-center mx-auto">
+                open the oven
+                </p>
                 </div>
 
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
@@ -413,7 +419,13 @@ const IndexPage: React.FC<PageProps> = () => {
                     Robust to Unseen Distractors
                 </p>
                 <VideoGrid videos={videosRow2_1} />
+                <p className="text-center mx-auto">
+                pick up the mandarin from the green plate & place the picked object on the table
+                </p>
                 <VideoGrid videos={videosRow2_2} />
+                <p className="text-center mx-auto">
+                pick up the red mug from the rack & place the picked object on the table
+                </p>
                 </div>
 
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
