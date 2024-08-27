@@ -1,6 +1,6 @@
 import * as React from "react"
 import type {HeadFC, PageProps} from "gatsby"
-
+import { StaticImage } from "gatsby-plugin-image"
 
 import {FaArrowUp, FaFilePdf, FaVideo} from "react-icons/fa";
 import {AiFillGithub} from "react-icons/ai";
@@ -69,6 +69,9 @@ import G_4_4 from "./videos/robust_to_unseen_object/4_4.mp4"
 import G_4_5 from "./videos/robust_to_unseen_object/4_5.mp4"
 import G_4_6 from "./videos/robust_to_unseen_object/4_6.mp4"
 
+import calvin_result from "./images/results/calvin.png"
+import real_result from "./images/results/real.png"
+
 const Title: React.FC = ({children}) => {
     // Paper title
     return (
@@ -76,6 +79,56 @@ const Title: React.FC = ({children}) => {
     )
 }
 
+const CalvinImage = () => {
+    const containerStyle = {
+      textAlign: 'center',  // 使容器内元素居中
+      padding: '20px',      // 给容器添加一些内边距
+    };
+  
+    const imageStyle = {
+      maxWidth: '100%',     // 图片最大宽度为父容器的100%
+      height: 'auto',       // 保持图片比例
+      display: 'block',     // 将图片转换为块级元素
+      margin: '0 auto',     // 图片水平居中
+    };
+  
+    const captionStyle = {
+      marginTop: '10px',    // 让字幕和图片之间有一些间距
+    };
+  
+    return (
+      <div style={containerStyle}>
+        <img src={calvin_result} alt="Example" style={imageStyle} />
+        <p style={captionStyle}>Results on CALVIN ABC->D </p>
+      </div>
+    );
+  };
+
+  const RealImage = () => {
+    const containerStyle = {
+      textAlign: 'center',  // 使容器内元素居中
+      padding: '20px',      // 给容器添加一些内边距
+    };
+  
+    const imageStyle = {
+      maxWidth: '100%',     // 图片最大宽度为父容器的100%
+      height: 'auto',       // 保持图片比例
+      display: 'block',     // 将图片转换为块级元素
+      margin: '0 auto',     // 图片水平居中
+    };
+  
+    const captionStyle = {
+      marginTop: '10px',    // 让字幕和图片之间有一些间距
+    };
+  
+    return (
+      <div style={containerStyle}>
+        <img src={real_result} alt="Example" style={imageStyle} />
+        <p style={captionStyle}>Success Rates of Real-Robot Experiments.</p>
+      </div>
+    );
+  };
+  
 const Venue: React.FC = ({website, children}) => {
     return (
         <div className="flex flex-wrap justify-center text-2xl lg:text-2xl mb-6 sm:mb-5">
@@ -228,7 +281,9 @@ const VideoGrid = ({ videos }) => {
               <source src={video.src} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <p>{video.description}</p>
+            <p className="text-center mx-auto" style={{ marginTop: '-30px' ,fontSize: '20px' }}>
+            {video.description}
+            </p>
           </div>
         ))}
       </div>
@@ -363,7 +418,6 @@ const IndexPage: React.FC<PageProps> = () => {
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen className="rounded-lg"></iframe>
                     </div> */}
-                    <h2 className="font-semibold border-b-[1px] !mb-4">Model</h2>
                     <p> GR-MG is a model designed to support multi-modal goals: a language and a goal image. It consists of two modules: a progress-guided goal image generation model
                          and a multi-modal goal-conditioned policy. The goal image generation model generates a goal image based on the current observation,
                           a language description of the task, and the task progress. The multi-modal goal-conditioned policy takes the generated goal image,
@@ -375,7 +429,6 @@ const IndexPage: React.FC<PageProps> = () => {
                     <source src={architecture} type="video/mp4"/>
                     </video>
                     {/* Results */}
-                    <h2 className="font-semibold border-b-[1px] !mb-4">Real-Robot Experiments</h2>
                     {/* Example Rollout */}
                     <h3 id="rollout" className="!mt-4">Example Rollout</h3>
                     <p>  Below, we show a rollout example below. Specifically, the goal image generation model generates the goal image every n timesteps. 
@@ -401,35 +454,35 @@ const IndexPage: React.FC<PageProps> = () => {
                          Unseen Disctractor, Uneen Background, and Unseen Object. Below, we show example rollouts in generalization settings.</p>
 {/* teach us how to lay videos */}
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto">
+                <p className="text-center md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px'  }}>
                     Robust to Different Object Poses
                 </p>
                 <VideoGrid videos={videosRow1_1} />
-                <p className="text-center mx-auto">
+                <p className="text-center mx-auto" style={{ marginTop: '-2px' ,fontSize: '23px' }}>
                 press the toaster switch
                 </p>
                 <VideoGrid videos={videosRow1_2} />
-                <p className="text-center mx-auto">
+                <p className="text-center mx-auto" style={{ marginTop: '-2px',fontSize: '23px'  }}>
                 open the oven
                 </p>
                 </div>
 
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto">
+                <p className="text-center md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px'  }}>
                     Robust to Unseen Distractors
                 </p>
                 <VideoGrid videos={videosRow2_1} />
-                <p className="text-center mx-auto">
+                <p className="text-center mx-auto" style={{ marginTop: '-2px' ,fontSize: '22px' }}>
                 pick up the mandarin from the green plate & place the picked object on the table
                 </p>
                 <VideoGrid videos={videosRow2_2} />
-                <p className="text-center mx-auto">
+                <p className="text-center mx-auto" style={{ marginTop: '-2px' ,fontSize: '22px' }}>
                 pick up the red mug from the rack & place the picked object on the table
                 </p>
                 </div>
 
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto">
+                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px'  }}>
                     Robust to Unseen Backgrounds
                 </p>
                 <VideoGrid videos={videosRow3_1} />
@@ -437,13 +490,22 @@ const IndexPage: React.FC<PageProps> = () => {
                 </div>
 
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto">
+                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px'  }}>
                     Robust to Unseen Objects
                 </p>
                 <VideoGrid videos={videosRow4_1} />
                 <VideoGrid videos={videosRow4_2} />
                 </div>
-
+                {/* Quantitative Results */}
+                <h3 id="language-guided" className="!mt-4">Quantitative Results</h3>
+                <p>  We evaluate the performance of GR-MG in a CALVIN benchmark and a real robot. For the CALVIN benchmark, we evaluate GR-MG on the ABC->D challenge. GR-MG outperforms all baselines. The advantage becomes even more pronounced when using only 10% of data with language and action labels. The results are presented in the following table.
+                </p>
+                <CalvinImage  />
+                <p> In real-robot experiments, we evaluate GR-MG in a simple setting as well as three challenging generalization settings. GR-MG consistently outperforms competitive baselines. Results are shown below.
+                </p>
+                <RealImage  />
+                <p> More details about our method and experimental settings can be found in our <a href="https://gr-mg.github.io/">paper</a>.
+                </p>
 {/* teach us how to set scroll video */}       
                 {/* <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
                     <div
