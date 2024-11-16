@@ -69,7 +69,19 @@ import G_4_4 from "./videos/robust_to_unseen_object/4_4.mp4"
 import G_4_5 from "./videos/robust_to_unseen_object/4_5.mp4"
 import G_4_6 from "./videos/robust_to_unseen_object/4_6.mp4"
 
-import calvin_result from "./images/results/calvin.png"
+// 三个一组作为一个视频组件进行展示
+
+import N_1_1 from "./videos/non_pp_task/1_1.mp4"
+import N_1_2 from "./videos/non_pp_task/1_2.mp4"
+import N_1_3 from "./videos/non_pp_task/1_3.mp4"
+import N_2_1 from "./videos/non_pp_task/2_1.mp4"
+import N_2_2 from "./videos/non_pp_task/2_2.mp4"
+import N_2_3 from "./videos/non_pp_task/2_3.mp4"
+import N_3_1 from "./videos/non_pp_task/3_1.mp4"
+import N_3_2 from "./videos/non_pp_task/3_2.mp4"
+import N_3_3 from "./videos/non_pp_task/3_3.mp4"
+
+import calvin_result from "./images/results/calvin2.png"
 import real_result from "./images/results/real.png"
 
 const Title: React.FC = ({children}) => {
@@ -111,7 +123,7 @@ const CalvinImage = () => {
     };
   
     const imageStyle = {
-      maxWidth: '100%',     // 图片最大宽度为父容器的100%
+      maxWidth: '50%',     // 图片最大宽度为父容器的100%
       height: 'auto',       // 保持图片比例
       display: 'block',     // 将图片转换为块级元素
       margin: '0 auto',     // 图片水平居中
@@ -281,7 +293,7 @@ const VideoGrid = ({ videos }) => {
               <source src={video.src} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <p className="text-center mx-auto" style={{ marginTop: '-30px' ,fontSize: '20px' }}>
+            <p className="text-center mx-auto" style={{ marginTop: '-30px' ,fontSize: '20px',marginBottom: '-15px'  }}>
             {video.description}
             </p>
           </div>
@@ -335,6 +347,25 @@ const videosRow4_2 = [
     { src: G_4_2, description: "pick up the banana from the vegetable basket & place the picked object on the cutting board" },
     { src: G_4_3, description: "pick up the red apple from the vegetable basket & place the picked object on the cutting board" },
   ];
+
+const videosRowN_1 = [
+    { src: N_1_1, description: "push the dragon fruit off the cutting board" },
+    { src: N_1_2, description: "rotate the bottle to the left" },
+    { src: N_1_3, description: "rotate the bottle to the right" },
+  ];
+
+const videosRowN_2 = [
+    { src: N_2_1, description: "cap the white mug" },
+    { src: N_2_2, description: "uncap the white mug" },
+    { src: N_2_3, description: "press the toaster switch" },
+  ];
+
+const videosRowN_3 = [
+    { src: N_3_1, description: "stack the bowls" },
+    { src: N_3_2, description: "flip cup upright" },
+    { src: N_3_3, description: "wipe the cutting board" },
+  ];
+
 const IndexPage: React.FC<PageProps> = () => {
     return (
         <>
@@ -355,7 +386,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
                     {/* Authors */}
                     <div className="flex flex-wrap justify-center text-xl lg:text-xl mb-4">
-                        <Author website={""} isInternship={true} affiliations={"1,2"}>Peiyan Li</Author>
+                        <Author website={"https://github.com/LPY1219"} isInternship={true} affiliations={"1,2"}>Peiyan Li</Author>
                         <Author website={"https://scholar.google.com/citations?user=7u0TYgIAAAAJ&hl=zh-CN&oi=ao"} affiliations={"3"} isCorrespondingAuthor={true} isProjectLead={true} >Hongtao Wu</Author>
                         <Author website={"https://yanrockhuang.github.io/"} affiliations={"1,2"} isCorrespondingAuthor={true}>Yan Huang</Author>
                         <Author website={""} affiliations={"3"}>Chilam Cheang</Author>
@@ -378,36 +409,41 @@ const IndexPage: React.FC<PageProps> = () => {
 
                     {/* Action Links */}
                     <p className="flex flex-wrap justify-center">
-                        <ActionLink url={""} icon={<FaFilePdf/>}>Paper</ActionLink>
+                        <ActionLink url={"https://arxiv.org/abs/2408.14368"} icon={<FaFilePdf/>}>Paper</ActionLink>
                         {/* <ActionLink url={"#video"} icon={<FaVideo/>}>Video</ActionLink> */}
-                        <ActionLink url={""} icon={<AiFillGithub/>}>Code (Coming soon)</ActionLink>
+                        <ActionLink url={"https://github.com/bytedance/GR-MG/tree/main"} icon={<AiFillGithub/>}>Code</ActionLink>
                     </p>
 
                     {/* Abstract */}
                     <Abstract>
                     The robotics community has consistently aimed to
                     achieve generalizable robot manipulation with flexible natural
-                    language instructions. One of the primary challenges is that
-                    obtaining robot data fully annotated with both actions and
-                    texts is time-consuming and labor-intensive. However, partially
+                    language instructions. One primary challenge is that obtain-
+                    ing robot trajectories fully annotated with both actions and
+                    texts is time-consuming and labor-intensive. However, partially-
                     annotated data, such as human activity videos without action
-                    labels and robot play data without language labels, is much
+                    labels and robot trajectories without text labels, are much
                     easier to collect. Can we leverage these data to enhance the
-                    generalization capability of robots? In this paper, we propose
-                    GR-MG, a novel method which supports conditioning on both
-                    a language instruction and a goal image. During training, GR-
-                    MG samples goal images from trajectories and conditions on
-                    both the text and the goal image or solely on the image when
-                    text is unavailable. During inference, where only the text is
+                    generalization capabilities of robots? In this paper, we propose
+                    GR-MG, a novel method which supports conditioning on a
+                    text instruction and a goal image. During training, GR-MG
+                    samples goal images from trajectories and conditions on both
+                    the text and the goal image or solely on the image when
+                    text is not available. During inference, where only the text is
                     provided, GR-MG generates the goal image via a diffusion-
-                    based image-editing model and condition on both the text
+                    based image-editing model and conditions on both the text
                     and the generated image. This approach enables GR-MG to
-                    leverage large amounts of partially annotated data while still
-                    using language to flexibly specify tasks. To generate accurate
+                    leverage large amounts of partially-annotated data while still
+                    use languages to flexibly specify tasks. To generate accurate
                     goal images, we propose a novel progress-guided goal image
                     generation model which injects task progress information into
-                    the generation process, significantly improving the fidelity and
-                    the performance.
+                    the generation process. In simulation experiments, GR-MG
+                    improves the average number of tasks completed in a row
+                    of 5 from 3.35 to 4.04. In real-robot experiments, GR-MG is
+                    able to perform 58 different tasks and improves the success
+                    rate from 68.7% to 78.1% and 44.4% to 60.6% in simple
+                    and generalization settings, respectively. It also outperforms
+                    comparing baseline methods in few-shot learning of novel skills.
                     </Abstract>
 
                     {/* YouTube Video */}
@@ -441,48 +477,51 @@ const IndexPage: React.FC<PageProps> = () => {
 
                     {/* Multi task Video */}
                     <h3 id="language-guided" className="!mt-4">Multi-Task Learning Experiments</h3>
-                    <p>     GR-MG is able to perform 47 tasks, including object pick-and-place, articulated object manipulation, and pouring.
+                    <p>     GR-MG is able to perform 58 tasks, including both pick-and-place and non-pick-and-place manipulations.
                     </p>
                     <video autoPlay controls muted playsInline loop alt="Multi-task Learning Experiments"
                            className="rounded-lg mx-auto" style={{ width: '70%', height: 'auto' }}>
                         <source src={multi_task} type="video/mp4"/>
                     </video>
 
+                    <VideoGrid videos={videosRowN_1} />
+                    <VideoGrid videos={videosRowN_2}  />
+                    <VideoGrid videos={videosRowN_3}  />
                     {/* Generalization Video */}
                     <h3 id="language-guided" className="!mt-4">Generalization Experiments</h3>
                     <p>  GR-MG showcases powerful generalization capability. We evaluate its performance in four different settings including Simple,
                          Unseen Disctractor, Uneen Background, and Unseen Object. Below, we show example rollouts in generalization settings.</p>
 {/* teach us how to lay videos */}
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                <p className="text-center md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px'  }}>
+                <p className="text-center md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px' , marginTop: '-30px' , marginBottom: '-15px' }}>
                     Robust to Different Object Poses
                 </p>
                 <VideoGrid videos={videosRow1_1} />
-                <p className="text-center mx-auto" style={{ marginTop: '-2px' ,fontSize: '23px' }}>
+                <p className="text-center mx-auto" style={{ marginTop: '-2px' ,fontSize: '23px',marginBottom: '-15px'  }}>
                 press the toaster switch
                 </p>
                 <VideoGrid videos={videosRow1_2} />
-                <p className="text-center mx-auto" style={{ marginTop: '-2px',fontSize: '23px'  }}>
+                <p className="text-center mx-auto" style={{ marginTop: '-2px',fontSize: '23px',marginBottom: '-15px'   }}>
                 open the oven
                 </p>
                 </div>
 
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                <p className="text-center md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px'  }}>
+                <p className="text-center md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px' ,marginTop: '-40px' , marginBottom: '-15px'  }}>
                     Robust to Unseen Distractors
                 </p>
                 <VideoGrid videos={videosRow2_1} />
-                <p className="text-center mx-auto" style={{ marginTop: '-2px' ,fontSize: '22px' }}>
+                <p className="text-center mx-auto" style={{ marginTop: '-2px' ,fontSize: '22px' ,marginBottom: '-15px' }}>
                 pick up the mandarin from the green plate & place the picked object on the table
                 </p>
                 <VideoGrid videos={videosRow2_2} />
-                <p className="text-center mx-auto" style={{ marginTop: '-2px' ,fontSize: '22px' }}>
+                <p className="text-center mx-auto" style={{ marginTop: '-2px' ,fontSize: '22px',marginBottom: '-15px'  }}>
                 pick up the red mug from the rack & place the picked object on the table
                 </p>
                 </div>
 
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px'  }}>
+                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px' ,marginTop: '-40px' , marginBottom: '-15px'  }}>
                     Robust to Unseen Backgrounds
                 </p>
                 <VideoGrid videos={videosRow3_1} />
@@ -490,7 +529,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 </div>
 
                 <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
-                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px'  }}>
+                <p className="text-center text-lg md:text-2lg font-bold md:max-w-[85%] mx-auto" style={{fontSize: '26px' ,marginTop: '-40px' , marginBottom: '-15px'  }}>
                     Robust to Unseen Objects
                 </p>
                 <VideoGrid videos={videosRow4_1} />
@@ -504,7 +543,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 <p> In real-robot experiments, we evaluate GR-MG in a simple setting as well as three challenging generalization settings. GR-MG consistently outperforms competitive baselines. Results are shown below.
                 </p>
                 <RealImage  />
-                <p> More details about our method and experimental settings can be found in our <a href="https://gr-mg.github.io/">paper</a>.
+                <p> More details about our method and experimental settings can be found in our <a href="https://arxiv.org/abs/2408.14368">paper</a>.
                 </p>
 {/* teach us how to set scroll video */}       
                 {/* <div className="my-6 pt-6 pb-4 bg-gradient-to-r">
@@ -614,15 +653,16 @@ const IndexPage: React.FC<PageProps> = () => {
                     </FewShotResult> */}
 
 {/* cite */}
-                    {/* <h2 id="citation" className="border-b-[1px]">Citation</h2>
+                    <h2 id="citation" className="border-b-[1px]">Citation</h2>
                     <div className="relative overflow-auto">
-                        <pre className="bg-gradient-to-r from-pink-100 via-indigo-100 to-emerald-100 !my-0">
+                        {/* <pre className="bg-gradient-to-r from-pink-100 via-indigo-100 to-emerald-100 !my-0"> */}
+                        <pre className="bg-gray-100 !my-0">
                             <code id="citation-bib" className="font-medium text-slate-800 ">{
-                                `@inproceedings{shen2023F3RM,
-    title={Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation},
-    author={Shen, William and Yang, Ge and Yu, Alan and Wong, Jansen and Kaelbling, Leslie Pack and Isola, Phillip},
-    booktitle={7th Annual Conference on Robot Learning},
-    year={2023}
+                                `@article{li2024gr,
+  title={GR-MG: Leveraging Partially Annotated Data via Multi-Modal Goal Conditioned Policy},
+  author={Li, Peiyan and Wu, Hongtao and Huang, Yan and Cheang, Chilam and Wang, Liang and Kong, Tao},
+  journal={arXiv preprint arXiv:2408.14368},
+  year={2024}
 }`
 }
                             </code>
@@ -647,7 +687,7 @@ const IndexPage: React.FC<PageProps> = () => {
                                 <LuTextSelect/>
                             </button>
                         </div>
-                    </div> */}
+                    </div> 
                 </Article>
 
                 <footer className={"flex flex-col justify-center bg-gray-50 mt-8 py-8"}>
