@@ -123,7 +123,7 @@ const CalvinImage = () => {
     };
   
     const imageStyle = {
-      maxWidth: '50%',     // 图片最大宽度为父容器的100%
+      maxWidth: '100%',     // 图片最大宽度为父容器的100%
       height: 'auto',       // 保持图片比例
       display: 'block',     // 将图片转换为块级元素
       margin: '0 auto',     // 图片水平居中
@@ -357,7 +357,7 @@ const videosRowN_1 = [
 const videosRowN_2 = [
     { src: N_2_1, description: "cap the white mug" },
     { src: N_2_2, description: "uncap the white mug" },
-    { src: N_2_3, description: "press the toaster switch" },
+    { src: N_2_3, description: "close the drawer" },
   ];
 
 const videosRowN_3 = [
@@ -412,6 +412,7 @@ const IndexPage: React.FC<PageProps> = () => {
                         <ActionLink url={"https://arxiv.org/abs/2408.14368"} icon={<FaFilePdf/>}>Paper</ActionLink>
                         {/* <ActionLink url={"#video"} icon={<FaVideo/>}>Video</ActionLink> */}
                         <ActionLink url={"https://github.com/bytedance/GR-MG/tree/main"} icon={<AiFillGithub/>}>Code</ActionLink>
+                        <ActionLink url={"https://drive.google.com/file/d/1kl6ycXQscc3sTOMqN7y1WIpTXupnHKpT/view?usp=drive_link"} icon={<FaFilePdf/>}>Supplementary</ActionLink>
                     </p>
 
                     {/* Abstract */}
@@ -483,7 +484,7 @@ const IndexPage: React.FC<PageProps> = () => {
                            className="rounded-lg mx-auto" style={{ width: '70%', height: 'auto' }}>
                         <source src={multi_task} type="video/mp4"/>
                     </video>
-
+                    <p>  Here are a few examples of challenging tasks that go beyond simple pick-and-place operations.</p>
                     <VideoGrid videos={videosRowN_1} />
                     <VideoGrid videos={videosRowN_2}  />
                     <VideoGrid videos={videosRowN_3}  />
@@ -540,7 +541,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 <p>  We evaluate the performance of GR-MG in a CALVIN benchmark and a real robot. For the CALVIN benchmark, we evaluate GR-MG on the ABC->D challenge. GR-MG outperforms all baselines. The advantage becomes even more pronounced when using only 10% of data with language and action labels. The results are presented in the following table.
                 </p>
                 <CalvinImage  />
-                <p> In real-robot experiments, we evaluate GR-MG in a simple setting as well as three challenging generalization settings. GR-MG consistently outperforms competitive baselines. Results are shown below.
+                <p> In real-robot experiments, we evaluate GR-MG in a simple setting as well as four challenging generalization settings. GR-MG consistently outperforms competitive baselines. Results are shown below.
                 </p>
                 <RealImage  />
                 <p> More details about our method and experimental settings can be found in our <a href="https://arxiv.org/abs/2408.14368">paper</a>.
