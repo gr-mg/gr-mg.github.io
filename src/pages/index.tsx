@@ -81,7 +81,7 @@ import N_3_1 from "./videos/non_pp_task/3_1.mp4"
 import N_3_2 from "./videos/non_pp_task/3_2.mp4"
 import N_3_3 from "./videos/non_pp_task/3_3.mp4"
 
-import calvin_result from "./images/results/calvin2.png"
+import calvin_result from "./images/results/calvin_update.png"
 import real_result from "./images/results/real.png"
 
 const Title: React.FC = ({children}) => {
@@ -412,7 +412,7 @@ const IndexPage: React.FC<PageProps> = () => {
                         <ActionLink url={"https://arxiv.org/abs/2408.14368"} icon={<FaFilePdf/>}>Paper</ActionLink>
                         {/* <ActionLink url={"#video"} icon={<FaVideo/>}>Video</ActionLink> */}
                         <ActionLink url={"https://github.com/bytedance/GR-MG/tree/main"} icon={<AiFillGithub/>}>Code</ActionLink>
-                        <ActionLink url={"https://drive.google.com/file/d/1kl6ycXQscc3sTOMqN7y1WIpTXupnHKpT/view?usp=drive_link"} icon={<FaFilePdf/>}>Supplementary</ActionLink>
+                        <ActionLink url={"https://drive.google.com/file/d/13Anp5i76KOKsBkMMGEW7uZCHXEj6McXW/view?usp=drive_link"} icon={<FaFilePdf/>}>Supplementary</ActionLink>
                     </p>
 
                     {/* Abstract */}
