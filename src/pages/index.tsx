@@ -156,7 +156,7 @@ const Abstract: React.FC = ({children}) => {
                 <p className="font-semibold text-2xl sm:text-3xl m-1 sm:m-2">Abstract</p>
             </div>
             <div className="flex justify-center content-center">
-                <p className="text-justify font-light text-base sm:text-lg m-1 sm:m-1 max-w-[100%] sm:max-w-[620px]">{
+                <p className="text-justify font-light text-base sm:text-lg m-1 sm:m-1 max-w-[100%] sm:max-w-[700px]">{
                     children
                 }</p>
             </div>
