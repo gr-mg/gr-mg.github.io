@@ -9,32 +9,8 @@ import {LuTextSelect} from "react-icons/lu";
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 
-import caterpillar_results from "./videos/few_shot_results/caterpillar.mp4"
-import mug_handle_results from "./videos/few_shot_results/mug_handle.mp4"
-import mug_lip_results from "./videos/few_shot_results/mug_lip.mp4"
-import rack_results from "./videos/few_shot_results/rack.mp4"
-import screwdriver_results from "./videos/few_shot_results/screwdriver.mp4"
 
-import caterpillar_demos from "./images/demos/caterpillar.png"
-import mug_handle_demos from "./images/demos/mug_handle.png"
-import mug_lip_demos from "./images/demos/mug_lip.png"
-import rack_demos from "./images/demos/rack.png"
-import screwdriver_demos from "./images/demos/screwdriver.png"
-
-import blue_mug from "./videos/language_results/carousel/blue_mug.mp4"
-import clear_mug from "./videos/language_results/carousel/clear_mug.mp4"
-import measuring_beaker from "./videos/language_results/carousel/measuring_beaker.mp4"
-import measuring_scoop from "./videos/language_results/carousel/measuring_scoop.mp4"
-import screwdriver from "./videos/language_results/carousel/screwdriver.mp4"
-import teddy_bear from "./videos/language_results/carousel/teddy_bear.mp4"
-import transparent_rack from "./videos/language_results/carousel/transparent_rack.mp4"
-import water_jug from "./videos/language_results/carousel/water_jug.mp4"
-import wooden_rack from "./videos/language_results/carousel/wooden_rack.mp4"
-
-import lang_results from "./videos/language_results/lang_results.mp4"
-import teaser_video from "./videos/teaser.mp4"
 import multi_task from  "./videos/multitask_min.mp4"
-import generalize from  "./videos/different_settings.mp4"
 import rollout from "./videos/rollout_min.mp4"
 import architecture from "./videos/architecture.mp4"
 
@@ -417,33 +393,12 @@ const IndexPage: React.FC<PageProps> = () => {
 
                     {/* Abstract */}
                     <Abstract>
-                    The robotics community has consistently aimed to
-                    achieve generalizable robot manipulation with flexible natural
-                    language instructions. One primary challenge is that obtain-
-                    ing robot trajectories fully annotated with both actions and
-                    texts is time-consuming and labor-intensive. However, partially-
-                    annotated data, such as human activity videos without action
-                    labels and robot trajectories without text labels, are much
-                    easier to collect. Can we leverage these data to enhance the
-                    generalization capabilities of robots? In this paper, we propose
-                    GR-MG, a novel method which supports conditioning on a
-                    text instruction and a goal image. During training, GR-MG
-                    samples goal images from trajectories and conditions on both
-                    the text and the goal image or solely on the image when
-                    text is not available. During inference, where only the text is
-                    provided, GR-MG generates the goal image via a diffusion-
-                    based image-editing model and conditions on both the text
-                    and the generated image. This approach enables GR-MG to
-                    leverage large amounts of partially-annotated data while still
-                    use languages to flexibly specify tasks. To generate accurate
-                    goal images, we propose a novel progress-guided goal image
-                    generation model which injects task progress information into
-                    the generation process. In simulation experiments, GR-MG
-                    improves the average number of tasks completed in a row
-                    of 5 from 3.35 to 4.04. In real-robot experiments, GR-MG is
-                    able to perform 58 different tasks and improves the success
-                    rate from 68.7% to 78.1% and 44.4% to 60.6% in simple
-                    and generalization settings, respectively. It also outperforms
+                    The robotics community has consistently aimed to achieve generalizable robot manipulation with flexible natural language instructions. One primary challenge is that obtaining robot trajectories fully annotated with both actions and
+                    texts is time-consuming and labor-intensive. However, partially-annotated data, such as human activity videos without action labels and robot trajectories without text labels, are much easier to collect. Can we leverage these data to enhance the
+                    generalization capabilities of robots? In this paper, we propose GR-MG, a novel method which supports conditioning on a text instruction and a goal image. During training, GR-MG
+                    samples goal images from trajectories and conditions on both the text and the goal image or solely on the image when text is not available. During inference, where only the text is provided, GR-MG generates the goal image via a diffusion-based image-editing model and conditions on both the text
+                    and the generated image. This approach enables GR-MG to leverage large amounts of partially-annotated data while still use languages to flexibly specify tasks. To generate accurate goal images, we propose a novel progress-guided goal image generation model which injects task progress information into
+                    the generation process. In simulation experiments, GR-MG improves the average number of tasks completed in a row of 5 from 3.35 to 4.04. In real-robot experiments, GR-MG is able to perform 58 different tasks and improves the success rate from 68.7% to 78.1% and 44.4% to 60.6% in simple and generalization settings, respectively. It also outperforms
                     comparing baseline methods in few-shot learning of novel skills.
                     </Abstract>
 
