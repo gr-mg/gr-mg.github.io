@@ -14,7 +14,7 @@ import multi_task from  "./videos/multitask_min.mp4"
 import rollout from "./videos/rollout_min.mp4"
 import architecture from "./videos/architecture.mp4"
 
-import G_1_1 from "./videos/few_shot_results/1_1.mp4"  //不能以数字开头命名
+import G_1_1 from "./videos/robust_to_poses/1_1.mp4"  //不能以数字开头命名
 // import 1_1 from "./videos/robust_to_poses/1_1.mp4"
 import G_1_2 from "./videos/robust_to_poses/1_2.mp4"
 import G_1_3 from "./videos/robust_to_poses/1_3.mp4"
@@ -349,7 +349,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 <Article>
                     <Title>
                         <span className="text-stone-800">GR-MG: Leveraging Partially Annotated Data via Multi-Modal
-                        Goal Conditioned Policy</span>
+                        Goal-Conditioned Policy</span>
                     </Title>
 
                     <Venue website={""}>
