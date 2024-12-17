@@ -352,11 +352,11 @@ const IndexPage: React.FC<PageProps> = () => {
                         Goal-Conditioned Policy</span>
                     </Title>
 
-                    <Venue website={""}>
+                    <Venue website={"https://www.ieee-ras.org/publications/ra-l"}>
                         {/* <span className="font-normal text-stone-600 hover:text-transparent hover:bg-clip-text
                         hover:bg-gradient-to-r hover:from-pink-500 hover:via-indigo-600 hover:to-emerald-400
                         hover:transition-all">In Submission</span> */}
-                        <span className="font-normal text-stone-600 hover:underline">In Submission</span>
+                        <span className="font-normal text-stone-600 hover:underline">RA-L</span>
                     </Venue>
 
 
