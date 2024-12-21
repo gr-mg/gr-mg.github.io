@@ -2,7 +2,7 @@ import * as React from "react"
 import type {HeadFC, PageProps} from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-import {FaArrowUp, FaFilePdf, FaVideo} from "react-icons/fa";
+import {FaArrowUp, FaFilePdf, FaVideo,FaRobot} from "react-icons/fa";
 import {AiFillGithub} from "react-icons/ai";
 import {LuTextSelect} from "react-icons/lu";
 
@@ -388,8 +388,9 @@ const IndexPage: React.FC<PageProps> = () => {
                     <p className="flex flex-wrap justify-center">
                         <ActionLink url={"https://arxiv.org/abs/2408.14368"} icon={<FaFilePdf/>}>Paper</ActionLink>
                         {/* <ActionLink url={"#video"} icon={<FaVideo/>}>Video</ActionLink> */}
-                        <ActionLink url={"https://github.com/bytedance/GR-MG/tree/main"} icon={<AiFillGithub/>}>Code</ActionLink>
                         <ActionLink url={"https://drive.google.com/file/d/13Anp5i76KOKsBkMMGEW7uZCHXEj6McXW/view?usp=drive_link"} icon={<FaFilePdf/>}>Supplementary</ActionLink>
+                        <ActionLink url={"https://github.com/bytedance/GR-MG/tree/main"} icon={<AiFillGithub/>}>Code</ActionLink>
+                        <ActionLink url={"https://github.com/bytedance/GR-MG/tree/main?tab=readme-ov-file#checkpoints"} icon={<FaRobot/>}>Checkpoints</ActionLink>
                     </p>
 
                     {/* Abstract */}
