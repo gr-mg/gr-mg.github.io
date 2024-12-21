@@ -227,7 +227,7 @@ const FewShotResult: React.FC = ({children, id, demos, demos_label, video, hidde
 }
 
 
-export const Head: HeadFC = () => <title>GR-MG: Leveraging Partially Annotated Data via Multi-Modal
+export const Head: HeadFC = () => <title>GR-MG: Leveraging Partially-Annotated Data via Multi-Modal
 Goal Conditioned Policy</title>
 
 const carouselResponsive = {
