@@ -616,11 +616,12 @@ const IndexPage: React.FC<PageProps> = () => {
                         {/* <pre className="bg-gradient-to-r from-pink-100 via-indigo-100 to-emerald-100 !my-0"> */}
                         <pre className="bg-gray-100 !my-0">
                             <code id="citation-bib" className="font-medium text-slate-800 ">{
-                                `@article{li2024gr,
-  title={GR-MG: Leveraging Partially Annotated Data via Multi-Modal Goal Conditioned Policy},
+                                `@article{li2025gr,
+  title={GR-MG: Leveraging Partially-Annotated Data Via Multi-Modal Goal-Conditioned Policy},
   author={Li, Peiyan and Wu, Hongtao and Huang, Yan and Cheang, Chilam and Wang, Liang and Kong, Tao},
-  journal={arXiv preprint arXiv:2408.14368},
-  year={2024}
+  journal={IEEE Robotics and Automation Letters},
+  year={2025},
+  publisher={IEEE}
 }`
 }
                             </code>
